@@ -13,6 +13,6 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
   // 全局注册拦截器
   app.useGlobalInterceptors(new TransfromInterceptor());
-  await app.listen(3000);
+  await app.listen(3366);
 }
 bootstrap();

@@ -34,7 +34,7 @@ export class DemoController {
     return await this.demoService.findAll(query);
   }
 
-  /**ß
+  /**
    * 基于id获取
    */
   @Get(':id')

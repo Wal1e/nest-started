@@ -25,7 +25,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       code: -1,
     };
 
-    // 设置返回的状态吗、请求头、发送错误信息
+    // 设置返回的状态码、请求头、发送错误信息
     response.status(status);
     response.header('Content-Type', 'application/json; charset=utf-8');
     response.send(errorRes);

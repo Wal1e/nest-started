@@ -7,6 +7,7 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
 import envConfig from '../config/env';
 import { DemoEntity } from './demo/demo.entity';
 import { UserModule } from './user/user.module';
+import { EsModule } from './es/es.module';
 /**
  * 应用程序的根模块，根模块提供了用来启动应用的引导机制
  * @author: wangshnagzhe
@@ -37,6 +38,7 @@ import { UserModule } from './user/user.module';
     }),
     DemoModule,
     UserModule,
+    EsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
