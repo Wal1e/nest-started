@@ -8,8 +8,11 @@ import {
   Put,
   Query,
   Req,
+  UsePipes,
 } from '@nestjs/common';
 import { DemoService, PostsRo } from './demo.service';
+import { TestPipe } from '@src/core/pipe/transform.pipe';
+import { DemoPostBody, DemoDto } from '@src/types/demo';
 
 @Controller('demo')
 export class DemoController {
@@ -20,7 +23,8 @@ export class DemoController {
    * @param post
    */
   @Post()
-  async create(@Body() post) {
+  @UsePipes(new TestPipe())
+  async create(@Body() post: DemoDto) {
     console.log('post===', post);
     return await this.demoService.create(post);
   }
@@ -28,16 +32,28 @@ export class DemoController {
   /**
    * 获取所有
    */
-  @Get()
-  async findAll(@Query() query): Promise<PostsRo> {
+  @Get('testPipe/:id')
+  @UsePipes(new TestPipe())
+  async findAll(@Param('id') idv: number): Promise<PostsRo> {
+    console.log('query==', idv);
+    return await this.demoService.findAll(idv);
+  }
+
+  /**
+   * test metatype 是 undefined
+   */
+  @Get('testMetatype')
+  @UsePipes(new TestPipe())
+  async testMetatype(@Query('d') query) {
     console.log('query==', query);
-    return await this.demoService.findAll(query);
+    return await this.demoService.findAll(1);
   }
 
   /**
    * 基于id获取
    */
   @Get(':id')
+  @UsePipes(new TestPipe())
   async fundById(@Param() params) {
     console.log('id==', params.id, typeof params.id);
     return this.demoService.findById(params.id);
