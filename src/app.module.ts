@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DemoModule } from './demo/demo.module';
@@ -8,6 +8,8 @@ import envConfig from '../config/env';
 import { DemoEntity } from './demo/demo.entity';
 import { UserModule } from './user/user.module';
 import { EsModule } from './es/es.module';
+import { NestModule } from '@nestjs/common';
+import { LoggerMiddle } from './core/middleware/logger.middleware';
 /**
  * 应用程序的根模块，根模块提供了用来启动应用的引导机制
  * @author: wangshnagzhe
@@ -43,4 +45,8 @@ import { EsModule } from './es/es.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddle).forRoutes('demo');
+  }
+}

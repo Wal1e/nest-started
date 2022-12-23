@@ -23,3 +23,92 @@
   },
   "ts-node": {"require": ["tsconfig-paths/register"]}
 }
+
+// {
+//   "code": 200,
+//   "success": true,
+//   "message": "success"
+// }
+
+
+// {
+//   "success": true,
+//   "code": 0,
+//   "data": {
+//     "JSERROR": {
+//       "title": "JS异常",
+//       "contrast": 17.5,
+//       "contrastFlag": 1,
+//       "value": 94,
+//       "list": [
+//         {                    
+//           "key": 1671206400000,
+//           "value": 1
+//         },
+//       ]
+//     },
+//     "APIRATE": {
+//       "title": "JS异常",
+//       "contrast": 17.5,
+//       "contrastFlag": 1,
+//       "value": 94,
+//       "list": [
+//         {                    
+//           "key": 1671206400000,
+//           "value": 1
+//         },
+//       ]
+//     },
+//     "FCP": {
+//       "title": "JS异常",
+//       "contrast": 17.5,
+//       "contrastFlag": 1,
+//       "value": 94,
+//       "list": [
+//         {                    
+//           "key": 1671206400000,
+//           "value": 1
+//         },
+//       ]
+//     },
+//     "TTI": {
+//       "title": "JS异常",
+//       "contrast": 17.5,
+//       "contrastFlag": 1,
+//       "value": 94,
+//       "list": [
+//         {                    
+//           "key": 1671206400000,
+//           "value": 1
+//         },
+//       ]
+//     },
+//   }
+// }
+
+// {
+//   "success": true,
+//   "code": 0,
+//   "data": {
+//     "today": {
+//       "JSERROR": {
+//       },
+//       "APIRATE": {
+//       },
+//       "FCP": {
+//       },
+//       "TTI": {
+//       },
+//     },
+//     "yesterday": {
+//       "JSERROR": {
+//       },
+//       "APIRATE": {
+//       },
+//       "FCP": {
+//       },
+//       "TTI": {
+//       },
+//     }
+//   }
+// }
