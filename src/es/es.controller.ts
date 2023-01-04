@@ -42,10 +42,18 @@ export class EsController {
    */
   @Get('search/:id')
   async getByAppid(@Param() param) {
+    console.log('getByAppid');
     const res = await this.esService.search({
       index: 'test',
       type: '_doc',
-      id: 'fgBvd4UBTBV8j2Kcg1q_',
+      body: {
+        query: {
+          term: {
+            _id: { value: 'fgBvd4UBTBV8j2Kcg1q_' },
+            // appId: { value: 'dahdia23444' },
+          },
+        },
+      },
     });
     return res;
   }
@@ -54,11 +62,16 @@ export class EsController {
    * 查询所有文档
    * @returns
    */
-  @Get('search/all')
-  async getByQuery(@Query() query) {
+  @Get('searchAll')
+  async getAll(@Query() query) {
+    console.log('getAll');
     const res = await this.esService.searchALL({
       index: 'test',
-      type: '_doc',
+      body: {
+        query: {
+          match_all: {},
+        },
+      },
     });
     return res;
   }
@@ -73,11 +86,13 @@ export class EsController {
       index: 'test',
       id: 'fgBvd4UBTBV8j2Kcg1q_',
       body: {
-        first_name: 'John',
-        last_name: 'Smith',
-        age: 26,
-        about: 'I love to go rock climbing',
-        interests: ['sports', 'music'],
+        doc: {
+          first_name: 'John',
+          last_name: 'Smith',
+          age: 26,
+          about: 'I love to go rock climbing',
+          interests: ['sports', 'music'],
+        },
       },
     });
     return res;
@@ -92,8 +107,9 @@ export class EsController {
     const res = await this.esService.delete({
       index: 'test',
       type: '_doc',
-      id: 'fgBvd4UBTBV8j2Kcg1q_',
+      id: '77',
     });
+    return res;
   }
 
   /**
