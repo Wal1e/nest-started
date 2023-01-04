@@ -1,66 +1,23 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 import { EsService } from './es.service';
 
 @Controller('es')
 export class EsController {
   constructor(private readonly esService: EsService) {}
   /**
-   * 根据appId获取
-   * @returns
+   * 插入文档
    */
-  @Get('pans/api/appId:appId')
-  async getHomeChartsList(@Param('appId') appId) {
-    console.log('get');
-  }
-
-  /**
-   * 查询所有
-   * @returns
-   */
-  @Get('pans/api/search/all')
-  async getByAppid(@Query() query) {
-    console.log('query');
-  }
-
-  /**
-   * 按条件查询
-   * @returns
-   */
-  @Get('pans/api/search')
-  async getByQuery(@Query() query) {
-    console.log('query');
-  }
-
-  /**
-   * 按时间区间查询
-   * @returns
-   */
-  @Get('pans/api/search/time-range')
-  async getByTimeRange(@Query() query) {
-    console.log('query');
-  }
-
-  /**
-   * 添加单条数据，现暂供开发测试阶段使用
-   */
-  @Post('pans/api/bulk')
-  async bulkData(@Body() post) {
-    console.log('post==', post);
-  }
-
-  /**
-   * 埋点sdk sendlog会一次上报1-10条数据，批量添加数据
-   */
-  @Post('pans/api/batchBulk')
-  async batchBulkData(@Body() post) {
-    console.log('query');
-  }
-
-  /**
-   * 索引文档
-   */
-  @Put('indexDoc')
-  async indexDoc(@Body() post) {
+  @Put('index/doc')
+  async indexDoc(@Param('appId') appId) {
     console.log('indexDoc');
     try {
       const res = await this.esService.index({
@@ -74,16 +31,93 @@ export class EsController {
           interests: ['sports', 'music'],
         },
       });
+      return res;
     } catch (error) {
       console.log('error===', error);
     }
   }
 
   /**
-   * 创建index1
+   * 查询指定文档
    */
-  @Put('pans/api/createIndex')
+  @Get('search/:id')
+  async getByAppid(@Param() param) {
+    const res = await this.esService.search({
+      index: 'test',
+      type: '_doc',
+      id: 'fgBvd4UBTBV8j2Kcg1q_',
+    });
+    return res;
+  }
+
+  /**
+   * 查询所有文档
+   * @returns
+   */
+  @Get('search/all')
+  async getByQuery(@Query() query) {
+    const res = await this.esService.searchALL({
+      index: 'test',
+      type: '_doc',
+    });
+    return res;
+  }
+
+  /**
+   * 更新文档
+   * @returns
+   */
+  @Post('update/doc')
+  async updateDoc(@Query() query) {
+    const res = await this.esService.update({
+      index: 'test',
+      id: 'fgBvd4UBTBV8j2Kcg1q_',
+      body: {
+        first_name: 'John',
+        last_name: 'Smith',
+        age: 26,
+        about: 'I love to go rock climbing',
+        interests: ['sports', 'music'],
+      },
+    });
+    return res;
+  }
+
+  /**
+   * 删除文档
+   */
+  @Delete('delete/doc')
+  async deleteDoc(@Body() post) {
+    console.log('deleteDoc==', post);
+    const res = await this.esService.delete({
+      index: 'test',
+      type: '_doc',
+      id: 'fgBvd4UBTBV8j2Kcg1q_',
+    });
+  }
+
+  /**
+   * 创建index
+   */
+  @Put('createIndex')
   async createIndex(@Body() post) {
+    console.log('query');
+  }
+
+  /**
+   * @description bulk api
+   * @usage 在单个API调用中执行多个索引或删除操作。这减少了开销，并可以大大提高索引速度。
+   */
+  @Post('bulk')
+  async bulkOperation() {
+    console.log('bulk');
+  }
+
+  /**
+   * 埋点sdk sendlog会一次上报1-10条数据，批量添加数据
+   */
+  @Post('pans/api/batchBulk')
+  async batchBulkData(@Body() post) {
     console.log('query');
   }
 }

@@ -3,6 +3,7 @@ import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
 export class EsService {
+  [x: string]: any;
   constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
   }
@@ -13,8 +14,23 @@ export class EsService {
   }
 
   // 查询数据search
+  async searchALL<T>(params) {
+    return await this.esService.search(params);
+  }
+
+  // 查询数据search
   async search<T>(params) {
     return await this.esService.search(params);
+  }
+
+  // 更新doc
+  async update<T>(params) {
+    return await this.esService.update(params);
+  }
+
+  // 删除doc
+  async delete<T>(params) {
+    return await this.esService.delete(params);
   }
 }
 
