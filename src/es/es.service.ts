@@ -1,9 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
 export class EsService {
-  constructor() {
+  constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
+  }
+
+  // 索引文档
+  async index<T>(params) {
+    return await this.esService.index(params);
+  }
+
+  // 查询数据search
+  async search<T>(params) {
+    return await this.esService.search(params);
   }
 }
 

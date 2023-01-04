@@ -57,7 +57,30 @@ export class EsController {
   }
 
   /**
-   * 创建index
+   * 索引文档
+   */
+  @Put('indexDoc')
+  async indexDoc(@Body() post) {
+    console.log('indexDoc');
+    try {
+      const res = await this.esService.index({
+        index: 'test',
+        type: '_doc',
+        body: {
+          first_name: 'John',
+          last_name: 'Smith',
+          age: 25,
+          about: 'I love to go rock climbing',
+          interests: ['sports', 'music'],
+        },
+      });
+    } catch (error) {
+      console.log('error===', error);
+    }
+  }
+
+  /**
+   * 创建index1
    */
   @Put('pans/api/createIndex')
   async createIndex(@Body() post) {
