@@ -77,6 +77,30 @@ export class EsController {
   }
 
   /**
+   * @description 查询的appName字段中包含单词aaa，并按照创建时间升序排列
+   */
+  @Get('searchByMatch/sort')
+  async searchByMatch_Sort() {
+    const res = await this.esService.search({
+      index: 'test',
+      body: {
+        query: {
+          match: {
+            appName: 'aaa',
+          },
+        },
+        sort: [
+          {
+            createTime: {
+              order: 'asc',
+            },
+          },
+        ],
+      },
+    });
+  }
+
+  /**
    * 更新文档
    * @returns
    */

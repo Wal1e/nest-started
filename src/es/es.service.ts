@@ -3,7 +3,6 @@ import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
 export class EsService {
-  [x: string]: any;
   constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
   }
@@ -31,6 +30,41 @@ export class EsService {
   // 删除doc
   async delete<T>(params) {
     return await this.esService.delete(params);
+  }
+
+  // 以下是一些常用的查询语句
+  // exists 查询和 missing 查询, 用于查找那些指定字段中有值 (exists) 或无值 (missing) 的文档
+  async searchByExists() {
+    return await this.esService.search({
+      index: 'test',
+      body: {
+        query: {
+          bool: {
+            filter: {
+              exists: {
+                field: 'last_name',
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+  async searchByMissing() {
+    return await this.esService.search({
+      index: 'test',
+      body: {
+        query: {
+          bool: {
+            filter: {
+              missing: {
+                field: 'appId',
+              },
+            },
+          },
+        },
+      },
+    });
   }
 }
 
