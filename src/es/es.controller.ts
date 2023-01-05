@@ -90,6 +90,18 @@ export class EsController {
   }
 
   /**
+   * 从索引中检索指定的JSON文档
+   */
+  @Get('retrieve/doc')
+  async retrieveDoc() {
+    const res = await this.esService.get({
+      index: 'test',
+      id: 'fgBvd4UBTBV8j2Kcg1q_',
+    });
+    return res;
+  }
+
+  /**
    * 查询指定文档
    */
   @Get('search/:id')
@@ -150,6 +162,7 @@ export class EsController {
         ],
       },
     });
+    return res;
   }
 
   /**

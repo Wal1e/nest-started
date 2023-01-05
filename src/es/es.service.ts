@@ -23,9 +23,13 @@ export class EsService {
       index: indexName,
     });
   }
-  // 索引文档
+  // 添加文档
   async index<T>(params) {
     return await this.esService.index(params);
+  }
+  // 从索引中检索指定的JSON文档
+  async get(params) {
+    return await this.esService.get(params);
   }
 
   // 查询数据search
