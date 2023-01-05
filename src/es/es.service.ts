@@ -6,7 +6,23 @@ export class EsService {
   constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
   }
-
+  // 查询索引
+  public async queryIndex() {
+    return await this.esService.cat.indices({});
+  }
+  // 新建索引
+  public async createIndex(indexName, body) {
+    return await this.esService.indices.create({
+      index: indexName,
+      body,
+    });
+  }
+  // 删除索引
+  public async deleteIndex(indexName) {
+    return await this.esService.indices.delete({
+      index: indexName,
+    });
+  }
   // 索引文档
   async index<T>(params) {
     return await this.esService.index(params);

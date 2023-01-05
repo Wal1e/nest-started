@@ -13,6 +13,58 @@ import { EsService } from './es.service';
 @Controller('es')
 export class EsController {
   constructor(private readonly esService: EsService) {}
+  // 查询索引
+  @Get('cat/indices')
+  async catIndices() {
+    const res = await this.esService.queryIndex();
+    return res;
+  }
+  // 新建索引
+  @Put('create/index')
+  async createIndex() {
+    const res = await this.esService.createIndex('pans-demo', {
+      mappings: {
+        properties: {
+          // ext: object; // 扩展字段
+          // deviceInfo: {
+          //   platform: string; // ios 15.3
+          //   model: string; // huawei mete40
+          //   clientVersion: string; // 3.4.0
+          //   sdkVersion: string; // 客户端基础库版本号
+          // }; // 系统信息
+          // sdkExt: {
+          //   networkType: 'wifi' | '5g' | '4g' | '3g' | '';
+          //   netState: ''; // 5种
+          //   locationInfo: object; // 用户位置信息
+          // }; // sdk 自用的可扩展字段
+          traceId: { type: 'text' },
+          order: { type: 'integer' },
+          isAutoTrack: { type: 'boolean' },
+          event: { type: 'text' },
+          eventDesc: { type: 'text' },
+          appId: { type: 'text' },
+          version: { type: 'text' },
+          appName: { type: 'text' },
+          userId: { type: 'text' },
+          path: { type: 'text' },
+          query: { type: 'text' },
+          logType: { type: 'text' },
+          isError: { type: 'boolean' },
+          errMessage: { type: 'text' },
+          consumeTime: { type: 'integer' },
+          reportTime: { type: 'date' },
+          createTime: { type: 'date' },
+        },
+      },
+    });
+    return res;
+  }
+  // 删除索引
+  @Delete('delete/index')
+  async deleteIndex() {
+    const res = this.esService.deleteIndex('pans-demo');
+    return res;
+  }
   /**
    * 插入文档
    */
@@ -134,14 +186,6 @@ export class EsController {
       id: '77',
     });
     return res;
-  }
-
-  /**
-   * 创建index
-   */
-  @Put('createIndex')
-  async createIndex(@Body() post) {
-    console.log('query');
   }
 
   /**
