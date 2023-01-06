@@ -13,44 +13,29 @@ import { EsService } from './es.service';
 @Controller('es')
 export class EsController {
   constructor(private readonly esService: EsService) {}
+  // 查看集群的健康状况
+  @Get('cat/health')
+  async catHealth() {
+    const res = await this.esService.catHealth();
+    return res;
+  }
   // 查询索引
   @Get('cat/indices')
   async catIndices() {
-    const res = await this.esService.queryIndex();
+    const res = await this.esService.catIndex();
     return res;
   }
   // 新建索引
-  @Put('create/index')
-  async createIndex() {
-    const res = await this.esService.createIndex('pans-demo', {
+  @Put('create/index/:indexName')
+  async createIndex(@Param('indexName') indexName) {
+    const res = await this.esService.createIndex(indexName, {
       mappings: {
         properties: {
-          // ext: object; // 扩展字段
-          // deviceInfo: {
-          //   platform: string; // ios 15.3
-          //   model: string; // huawei mete40
-          //   clientVersion: string; // 3.4.0
-          //   sdkVersion: string; // 客户端基础库版本号
-          // }; // 系统信息
-          // sdkExt: {
-          //   networkType: 'wifi' | '5g' | '4g' | '3g' | '';
-          //   netState: ''; // 5种
-          //   locationInfo: object; // 用户位置信息
-          // }; // sdk 自用的可扩展字段
-          traceId: { type: 'text' },
-          order: { type: 'integer' },
-          isAutoTrack: { type: 'boolean' },
           event: { type: 'text' },
-          eventDesc: { type: 'text' },
           appId: { type: 'text' },
-          version: { type: 'text' },
           appName: { type: 'text' },
-          userId: { type: 'text' },
-          path: { type: 'text' },
-          query: { type: 'text' },
           logType: { type: 'text' },
           isError: { type: 'boolean' },
-          errMessage: { type: 'text' },
           consumeTime: { type: 'integer' },
           reportTime: { type: 'date' },
           createTime: { type: 'date' },
@@ -60,28 +45,22 @@ export class EsController {
     return res;
   }
   // 删除索引
-  @Delete('delete/index')
-  async deleteIndex() {
-    const res = this.esService.deleteIndex('pans-demo');
+  @Delete('delete/index/:indexName')
+  async deleteIndex(@Param('indexName') indexName) {
+    const res = this.esService.deleteIndex(indexName);
     return res;
   }
   /**
    * 插入文档
    */
-  @Put('index/doc')
-  async indexDoc(@Param('appId') appId) {
-    console.log('indexDoc');
+  @Put('index/doc/:indexName')
+  async indexDoc(@Param('indexName') indexName, @Body() post) {
+    console.log('indexDoc-post==', post);
     try {
       const res = await this.esService.index({
-        index: 'test',
+        index: indexName,
         type: '_doc',
-        body: {
-          first_name: 'John',
-          last_name: 'Smith',
-          age: 25,
-          about: 'I love to go rock climbing',
-          interests: ['sports', 'music'],
-        },
+        body: post,
       });
       return res;
     } catch (error) {
@@ -93,10 +72,11 @@ export class EsController {
    * 从索引中检索指定的JSON文档
    */
   @Get('retrieve/doc')
-  async retrieveDoc() {
+  async retrieveDoc(@Query() query) {
+    const { index = '', id = '' } = query;
     const res = await this.esService.get({
-      index: 'test',
-      id: 'fgBvd4UBTBV8j2Kcg1q_',
+      index,
+      id,
     });
     return res;
   }
@@ -104,16 +84,17 @@ export class EsController {
   /**
    * 查询指定文档
    */
-  @Get('search/:id')
-  async getByAppid(@Param() param) {
-    console.log('getByAppid');
+  @Get('search')
+  async getByAppid(@Query() query) {
+    console.log('getByAppid-param=', query);
+    const { index = '', id = '' } = query;
     const res = await this.esService.search({
-      index: 'test',
+      index,
       type: '_doc',
       body: {
         query: {
           term: {
-            _id: { value: 'fgBvd4UBTBV8j2Kcg1q_' },
+            _id: { value: id },
             // appId: { value: 'dahdia23444' },
           },
         },
@@ -126,11 +107,11 @@ export class EsController {
    * 查询所有文档
    * @returns
    */
-  @Get('searchAll')
-  async getAll(@Query() query) {
+  @Get('searchAll/:indexName')
+  async getAll(@Param('indexName') indexName) {
     console.log('getAll');
     const res = await this.esService.searchALL({
-      index: 'test',
+      index: indexName,
       body: {
         query: {
           match_all: {},
@@ -170,18 +151,13 @@ export class EsController {
    * @returns
    */
   @Post('update/doc')
-  async updateDoc(@Query() query) {
+  async updateDoc(@Body() post) {
+    const { index, id, data } = post;
     const res = await this.esService.update({
-      index: 'test',
-      id: 'fgBvd4UBTBV8j2Kcg1q_',
+      index,
+      id,
       body: {
-        doc: {
-          first_name: 'John',
-          last_name: 'Smith',
-          age: 26,
-          about: 'I love to go rock climbing',
-          interests: ['sports', 'music'],
-        },
+        doc: data,
       },
     });
     return res;
@@ -191,16 +167,42 @@ export class EsController {
    * 删除文档
    */
   @Delete('delete/doc')
-  async deleteDoc(@Body() post) {
-    console.log('deleteDoc==', post);
+  async deleteDoc(@Query() query) {
+    console.log('deleteDoc==', query);
+    const { index = '', id = '' } = query;
     const res = await this.esService.delete({
-      index: 'test',
+      index,
       type: '_doc',
-      id: '77',
+      id,
+    });
+    return res;
+  }
+  /**
+   * 将文档从源复制到目标
+   */
+  @Post('reindex')
+  async reindex() {
+    const res = this.esService.reindex({
+      body: {
+        source: {
+          index: 'my-index-000001',
+        },
+        dest: {
+          index: 'my-new-index-000001',
+        },
+      },
     });
     return res;
   }
 
+  /**
+   * 获取索引的映射类型
+   */
+  @Get('get/mapping/:indexName')
+  async getMapping(@Param('indexName') indexName) {
+    const res = this.esService.getMapping(indexName);
+    return res;
+  }
   /**
    * @description bulk api
    * @usage 在单个API调用中执行多个索引或删除操作。这减少了开销，并可以大大提高索引速度。
