@@ -6,8 +6,12 @@ export class EsService {
   constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
   }
+  // 查看集群的健康状况
+  public async catHealth() {
+    return await this.esService.cat.health({});
+  }
   // 查询索引
-  public async queryIndex() {
+  public async catIndex() {
     return await this.esService.cat.indices({});
   }
   // 新建索引
@@ -52,6 +56,17 @@ export class EsService {
     return await this.esService.delete(params);
   }
 
+  // reindex
+  async reindex<T>(params) {
+    return await this.esService.reindex(params);
+  }
+
+  // 获取索引映射
+  async getMapping(indexName) {
+    return await this.esService.indices.getMapping({
+      index: indexName,
+    });
+  }
   // 以下是一些常用的查询语句
   // exists 查询和 missing 查询, 用于查找那些指定字段中有值 (exists) 或无值 (missing) 的文档
   async searchByExists() {
