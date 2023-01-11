@@ -33,8 +33,8 @@ export class CustomLoggerService {
         console: { type: 'console' },
         app: {
           type: 'file',
-          // filename: path.join(__dirname, '../data/logger/info.log'),
-          filename: '../data/logger/info.log',
+          filename: path.join(__dirname, '../data/logger/info.log'),
+          // filename: 'data/logger/info.log',
           keepFileExt: true,
         },
       },

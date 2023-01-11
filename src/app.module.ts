@@ -11,6 +11,7 @@ import { EsModule } from './es/es.module';
 import { NestModule } from '@nestjs/common';
 import { LoggerMiddleware } from './core/middleware/logger.middleware';
 import { ParamMiddleware } from './core/middleware/param.middleware';
+import { LoggerModule } from './logger/logger.module';
 /**
  * 应用程序的根模块，根模块提供了用来启动应用的引导机制
  * @author: wangshnagzhe
@@ -42,6 +43,7 @@ import { ParamMiddleware } from './core/middleware/param.middleware';
     DemoModule,
     UserModule,
     EsModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -9,23 +9,35 @@ import {
   Query,
   Req,
   UsePipes,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { DemoService, PostsRo } from './demo.service';
 import { TestPipe } from '@src/core/pipe/transform.pipe';
 import { DemoPostBody, DemoDto } from '@src/types/demo';
+import { RolesGuard } from '@src/core/guard/roles.guard';
+import { Roles } from '@src/core/custom.decorators/role.decorator';
+import { LoggerInterceptor } from '@src/core/interceptor/logger.interceptor';
+import { CustomLoggerService } from '@src/logger/logger.service';
 
 @Controller('demo')
 export class DemoController {
-  constructor(private readonly demoService: DemoService) {}
+  constructor(
+    private readonly demoService: DemoService,
+    private readonly customLoggerService: CustomLoggerService,
+  ) {}
 
   /**
    * 创建
    * @param post
+   * @description 在使用pipe的时候，会验证metatype，当请求的参数是class定义的类型时，回跳过validate
    */
   @Post()
   @UsePipes(new TestPipe())
   async create(@Body() post: DemoDto) {
     console.log('post===', post);
+    this.customLoggerService.http();
     return await this.demoService.create(post);
   }
 
@@ -43,6 +55,9 @@ export class DemoController {
    * test metatype 是 undefined
    */
   @Get('testMetatype')
+  @Roles('admin')
+  @UseInterceptors(LoggerInterceptor)
+  @UseGuards(new RolesGuard(new Reflector()))
   @UsePipes(new TestPipe())
   async testMetatype(@Query('d') query) {
     console.log('query==', query);

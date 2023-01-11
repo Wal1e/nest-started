@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './core/filter/http-exception/http-exception.filter';
-import { TransfromInterceptor } from './core/interceptor/transfrom/transfrom.interceptor';
+import { TransfromInterceptor } from './core/interceptor/transfrom.interceptor';
 /**
  * 应用程序的入口文件，它使用核心函数NestFactory来创建nest应用程序实例
  * @author：wangshangzhe
