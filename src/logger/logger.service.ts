@@ -5,45 +5,46 @@ import * as path from 'path';
 @Injectable()
 export class CustomLoggerService {
   constructor() {
-    log4js.configure({
-      // appenders: {
-      //   http: {
-      //     type: 'file',
-      //     filename: path.join(__dirname, '../data/logger/http.log'),
-      //   },
-      //   info: {
-      //     type: 'dateFile',
-      //     filename: path.join(__dirname, '../data/logger/info.log'),
-      //     alwaysIncludePattern: true,
-      //     keepFileExt: true,
-      //     compress: true,
-      //   },
-      // },
-      // categories: {
-      //   default: {
-      //     appenders: ['info'],
-      //     level: 'info',
-      //   },
-      //   http: {
-      //     appenders: ['http'],
-      //     level: 'info',
-      //   },
-      // },
-      appenders: {
-        console: { type: 'console' },
-        app: {
-          type: 'file',
-          filename: path.join(__dirname, '../data/logger/info.log'),
-          keepFileExt: true,
-        },
-      },
-      categories: {
-        default: { appenders: ['console'], level: 'trace' },
-        catA: { appenders: ['console'], level: 'error' },
-        'catA.catB': { appenders: ['app'], level: 'trace' },
-      },
-    });
+    // log4js.configure({
+    // appenders: {
+    //   http: {
+    //     type: 'file',
+    //     filename: path.join(__dirname, '../data/logger/http.log'),
+    //   },
+    //   info: {
+    //     type: 'dateFile',
+    //     filename: path.join(__dirname, '../data/logger/info.log'),
+    //     alwaysIncludePattern: true,
+    //     keepFileExt: true,
+    //     compress: true,
+    //   },
+    // },
+    // categories: {
+    //   default: {
+    //     appenders: ['info'],
+    //     level: 'info',
+    //   },
+    //   http: {
+    //     appenders: ['http'],
+    //     level: 'info',
+    //   },
+    // },
+    //   appenders: {
+    //     console: { type: 'console' },
+    //     app: {
+    //       type: 'file',
+    //       filename: path.join(__dirname, '../data/logger/info.log'),
+    //       keepFileExt: true,
+    //     },
+    //   },
+    //   categories: {
+    //     default: { appenders: ['console'], level: 'trace' },
+    //     catA: { appenders: ['console'], level: 'error' },
+    //     'catA.catB': { appenders: ['app'], level: 'trace' },
+    //   },
+    // });
   }
+
   http() {
     // const httpLogger = log4js.getLogger('http');
     // httpLogger.info('123');

@@ -20,6 +20,7 @@ import { RolesGuard } from '@src/core/guard/roles.guard';
 import { Roles } from '@src/core/custom.decorators/role.decorator';
 import { LoggerInterceptor } from '@src/core/interceptor/logger.interceptor';
 import { CustomLoggerService } from '@src/logger/logger.service';
+// import { Logger } from '@src/utils/logger';
 
 @Controller('demo')
 export class DemoController {
@@ -37,7 +38,8 @@ export class DemoController {
   @UsePipes(new TestPipe())
   async create(@Body() post: DemoDto) {
     console.log('post===', post);
-    this.customLoggerService.http();
+    // this.customLoggerService.http();
+    // Logger.access('ssss');
     return await this.demoService.create(post);
   }
 
