@@ -4,6 +4,7 @@ import {
   ExceptionFilter,
   HttpException,
 } from '@nestjs/common';
+import { Logger } from '@src/utils/logger';
 /**
  * 创建--实现--在main中注册
  */
@@ -18,6 +19,15 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const msg = exception.message
       ? exception.message
       : `${status >= 500 ? 'Server Error' : 'Client Eror'}`;
+    console.log('exception.toString===', exception.toString());
+    const logFormat = ` <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      Request original url: ${request.originalUrl}
+      Method: ${request.method}
+      IP: ${request.ip}
+      Status code: ${status}
+      exception: ${exception.toString()} \n  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      `;
+    Logger.error(logFormat);
 
     const errorRes = {
       data: {},

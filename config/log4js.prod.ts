@@ -79,9 +79,8 @@ export const log4jsConfigure = {
       // },
       // 日志文件按日期（天）切割
       pattern: 'yyyyMMdd',
-      daysToKeep: 30,
       // maxLogSize: 10485760,
-      numBackups: 3,
+      numBackups: 30,
       keepFileExt: true,
     },
     errors: {

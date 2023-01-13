@@ -7,8 +7,6 @@ import * as Util from 'util';
 import Chalk from 'chalk';
 import { LoggerLevel } from './constant';
 
-// log4js.configure(log4jsConfigure);
-
 // 内容跟踪类
 export class ContextTrace {
   constructor(
@@ -88,7 +86,7 @@ log4js.addLayout('Awesome-nest', (logConfig: any) => {
   };
 });
 
-// 注入配置
+// 需要先执行addLayout，在注入配置，否则会报错，浪费我的排查时间
 log4js.configure(log4jsConfigure);
 
 // 实例化

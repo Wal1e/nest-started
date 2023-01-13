@@ -36,7 +36,7 @@ export class DemoController {
    */
   @Post()
   @UsePipes(new TestPipe())
-  async create(@Body() post: DemoDto) {
+  async create(@Body() post: DemoDto, @Param() id) {
     console.log('post===', post);
     // this.customLoggerService.http();
     // Logger.access('ssss');
