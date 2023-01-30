@@ -3,16 +3,6 @@ const baseLogPath = path.resolve(__dirname, '../../logs'); // 日志要写入哪
 console.log('baseLogPath==', baseLogPath);
 export const log4jsConfigure = {
   appenders: {
-    // fileAppender: {
-    //   type: 'dateFile',
-    //   numBackups: 30,
-    //   pattern: '.yyyyMMdd',
-    //   filename: 'main.log',
-    //   layout: {
-    //     type: 'pattern',
-    //     pattern: '%d [%p] [%c] - %m%n',
-    //   },
-    // },
     stdout: {
       //控制台输出
       type: 'console',
@@ -95,7 +85,6 @@ export const log4jsConfigure = {
       level: 'trace',
     },
     info: { appenders: ['console', 'app', 'errors'], level: 'info' },
-    access: { appenders: ['console', 'app', 'errors'], level: 'info' },
     http: { appenders: ['access'], level: 'trace' },
   },
 };
