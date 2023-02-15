@@ -103,7 +103,8 @@ export class DemoController {
    */
   @Post('bodyIsArray')
   async postBodyIsArray(@Body() post) {
-    // post = [1,2,3]，当是字符串的时候，会有问题
+    // post = [1,2,3]
+    // 用postman 测试的时候， 需要用双引号 ["aa","bb","cc"]
     console.log('post==', post, post[0]);
     return { code: 1 };
   }
