@@ -71,7 +71,7 @@ export class DemoController {
    */
   @Get(':id')
   @UsePipes(new TestPipe())
-  async fundById(@Param() params) {
+  async findById(@Param() params) {
     console.log('id==', params.id, typeof params.id);
     return this.demoService.findById(params.id);
   }
@@ -96,5 +96,15 @@ export class DemoController {
     id,
   ) {
     return await this.demoService.remove(id);
+  }
+
+  /**
+   * post 参数是数组
+   */
+  @Post('bodyIsArray')
+  async postBodyIsArray(@Body() post) {
+    // post = [1,2,3]，当是字符串的时候，会有问题
+    console.log('post==', post, post[0]);
+    return { code: 1 };
   }
 }
