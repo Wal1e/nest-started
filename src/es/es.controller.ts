@@ -39,6 +39,14 @@ export class EsController {
           consumeTime: { type: 'integer' },
           reportTime: { type: 'date' },
           createTime: { type: 'date' },
+          locationInfo: {
+            properties: {
+              timestamp: { type: 'integer' }, // 定位数据的时间戳
+              location: { type: 'text' }, // 经纬度换算后的具体地理位置
+              latitude: { type: 'float' }, // 纬度， 范围为-90~90，正数表示北，负数表示南
+              longitude: { type: 'float' }, // 经度，范围为-180~180，正数表示东，负数表示西
+            },
+          },
         },
       },
     });
