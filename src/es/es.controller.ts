@@ -37,6 +37,9 @@ export class EsController {
           logType: { type: 'text' },
           isError: { type: 'boolean' },
           consumeTime: { type: 'integer' },
+          // https://www.elastic.co/guide/cn/elasticsearch/guide/current/_finding_exact_values.html
+          // https://www.elastic.co/guide/en/elasticsearch/reference/7.17/term-level-queries.html
+          logMessage: { type: 'keyword' },
           reportTime: { type: 'date' },
           createTime: { type: 'date' },
           locationInfo: {
