@@ -101,6 +101,39 @@ export class EsService {
       },
     });
   }
+  /**
+   * fuzzy查询，当field的类型是keyword的时候，fuzzy查询该字段的时候，需要输入精确值
+   * 所以keyword类型的field不适合于fuzzy、match查询
+   * 场景： 在索引中存入了一个name对象 包含first和last两个属性，现要fuzzy查询first
+   * name = { first: 'wang', last: 'sansui'}
+   */
+  async fuzzySearch() {
+    return await this.esService.search({
+      index: 'test',
+      body: {
+        query: {
+          fuzzy: {
+            'name.first': 'wa',
+          },
+        },
+      },
+    });
+  }
+  /**
+   * match query
+   */
+  async matchSearch() {
+    return await this.esService.search({
+      index: 'test',
+      body: {
+        query: {
+          match: {
+            'name.first': 'wa',
+          },
+        },
+      },
+    });
+  }
 }
 
 // bool查询
