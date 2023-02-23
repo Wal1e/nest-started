@@ -5,10 +5,13 @@ import { ElasticsearchService } from '@nestjs/elasticsearch';
 export class EsService {
   constructor(private readonly esService: ElasticsearchService) {
     console.log('constructor');
+    // this.catHealth();
   }
   // 查看集群的健康状况
   public async catHealth() {
-    return await this.esService.cat.health({});
+    const res = await this.esService.cat.health({});
+    console.log('catHealth---res===', res);
+    return res;
   }
   // 查询索引
   public async catIndex() {

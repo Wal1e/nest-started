@@ -17,4 +17,11 @@ function getEnvPath(): IPath {
   return { path: envPth };
 }
 
+export const getKafkaConfig = () => {
+  return {
+    kafkaHost: '',
+    topic: '',
+  };
+};
+
 export default getEnvPath();

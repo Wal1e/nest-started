@@ -12,6 +12,8 @@ import { NestModule } from '@nestjs/common';
 import { LoggerMiddleware } from './core/middleware/logger.middleware';
 import { ParamMiddleware } from './core/middleware/param.middleware';
 import { LoggerModule } from './logger/logger.module';
+import { KafkaConsumerService } from './kafka.consumer/kafka.consumer.service';
+import { KafkaConsumerModule } from './kafka.consumer/kafka.consumer.module';
 /**
  * 应用程序的根模块，根模块提供了用来启动应用的引导机制
  * @author: wangshnagzhe
@@ -44,9 +46,10 @@ import { LoggerModule } from './logger/logger.module';
     UserModule,
     EsModule,
     LoggerModule,
+    KafkaConsumerModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, KafkaConsumerService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

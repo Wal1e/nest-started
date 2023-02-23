@@ -1502,6 +1502,11 @@
   dependencies:
     "type-fest" "^0.21.3"
 
+"ansi-regex@^2.0.0":
+  "integrity" "sha1-w7M6te42DYbg5ijwRorn7yfWVN8="
+  "resolved" "https://npm.weizhipin.com/ansi-regex/-/ansi-regex-2.1.1.tgz"
+  "version" "2.1.1"
+
 "ansi-regex@^5.0.1":
   "integrity" "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="
   "resolved" "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz"
@@ -1549,6 +1554,19 @@
   "resolved" "https://registry.npmjs.org/append-field/-/append-field-1.0.0.tgz"
   "version" "1.0.0"
 
+"aproba@^1.0.3":
+  "integrity" "sha1-aALmJk79GMeQobDVF/DyYnvyyUo="
+  "resolved" "https://npm.weizhipin.com/aproba/-/aproba-1.2.0.tgz"
+  "version" "1.2.0"
+
+"are-we-there-yet@~1.1.2":
+  "integrity" "sha1-sVR0qTKtq0/4pQ2a36fk6SbyEUY="
+  "resolved" "https://npm.weizhipin.com/are-we-there-yet/-/are-we-there-yet-1.1.7.tgz"
+  "version" "1.1.7"
+  dependencies:
+    "delegates" "^1.0.0"
+    "readable-stream" "^2.0.6"
+
 "arg@^4.1.0":
   "integrity" "sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA=="
   "resolved" "https://registry.npmjs.org/arg/-/arg-4.1.3.tgz"
@@ -1595,6 +1613,13 @@
   dependencies:
     "semver" "^5.3.0"
     "shimmer" "^1.1.0"
+
+"async@^2.6.2":
+  "integrity" "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA=="
+  "resolved" "https://npm.weizhipin.com/async/-/async-2.6.4.tgz"
+  "version" "2.6.4"
+  dependencies:
+    "lodash" "^4.17.14"
 
 "async@^2.6.3":
   "integrity" "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA=="
@@ -1712,6 +1737,37 @@
   "resolved" "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   "version" "2.2.0"
 
+"binary@~0.3.0":
+  "integrity" "sha1-n2BVO8XOjDOG87VTz/R0Yq3sqnk="
+  "resolved" "https://npm.weizhipin.com/binary/-/binary-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "buffers" "~0.1.1"
+    "chainsaw" "~0.1.0"
+
+"bindings@^1.3.1":
+  "integrity" "sha1-EDU8npRTNLwFEabZCzj7x8nFBN8="
+  "resolved" "https://npm.weizhipin.com/bindings/-/bindings-1.5.0.tgz"
+  "version" "1.5.0"
+  dependencies:
+    "file-uri-to-path" "1.0.0"
+
+"bl@^1.0.0":
+  "integrity" "sha1-Ho3YAULqyA1xWMnczAR/tiDgNec="
+  "resolved" "https://npm.weizhipin.com/bl/-/bl-1.2.3.tgz"
+  "version" "1.2.3"
+  dependencies:
+    "readable-stream" "^2.3.5"
+    "safe-buffer" "^5.1.1"
+
+"bl@^2.2.0":
+  "integrity" "sha1-jBGntzBlXF1WiYzchxIk9A/ZAdU="
+  "resolved" "https://npm.weizhipin.com/bl/-/bl-2.2.1.tgz"
+  "version" "2.2.1"
+  dependencies:
+    "readable-stream" "^2.3.5"
+    "safe-buffer" "^5.1.1"
+
 "bl@^4.1.0":
   "integrity" "sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w=="
   "resolved" "https://registry.npmjs.org/bl/-/bl-4.1.0.tgz"
@@ -1788,6 +1844,29 @@
   dependencies:
     "node-int64" "^0.4.0"
 
+"buffer-alloc-unsafe@^1.1.0":
+  "integrity" "sha1-vX3CauKXLQ7aJTvgYdupkjScGfA="
+  "resolved" "https://npm.weizhipin.com/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz"
+  "version" "1.1.0"
+
+"buffer-alloc@^1.2.0":
+  "integrity" "sha1-iQ3ZDZI6hz4I4Q5f1RpX5bfM4Ow="
+  "resolved" "https://npm.weizhipin.com/buffer-alloc/-/buffer-alloc-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "buffer-alloc-unsafe" "^1.1.0"
+    "buffer-fill" "^1.0.0"
+
+"buffer-crc32@~0.2.5":
+  "integrity" "sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI="
+  "resolved" "https://npm.weizhipin.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz"
+  "version" "0.2.13"
+
+"buffer-fill@^1.0.0":
+  "integrity" "sha1-+PeLdniYiO858gXNY39o5wISKyw="
+  "resolved" "https://npm.weizhipin.com/buffer-fill/-/buffer-fill-1.0.0.tgz"
+  "version" "1.0.0"
+
 "buffer-from@^1.0.0":
   "integrity" "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="
   "resolved" "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
@@ -1808,6 +1887,18 @@
   dependencies:
     "base64-js" "^1.3.1"
     "ieee754" "^1.2.1"
+
+"buffermaker@~1.2.0":
+  "integrity" "sha1-BjH5K4kahLdQ8QNkkayFfHNEKfQ="
+  "resolved" "https://npm.weizhipin.com/buffermaker/-/buffermaker-1.2.1.tgz"
+  "version" "1.2.1"
+  dependencies:
+    "long" "1.1.2"
+
+"buffers@~0.1.1":
+  "integrity" "sha1-skV5w77U1tOWru5tmorn9Ugqt7s="
+  "resolved" "https://npm.weizhipin.com/buffers/-/buffers-0.1.1.tgz"
+  "version" "0.1.1"
 
 "busboy@^1.0.0":
   "integrity" "sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA=="
@@ -1848,6 +1939,13 @@
   "integrity" "sha512-kdCkUTjR+v4YAJelyiDTqiu82BDr4W4CP5sgTA0ZBmqn30XfS2ZghPLMowik9TPhS+psWJiUNxsqLyurDbmutA=="
   "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001435.tgz"
   "version" "1.0.30001435"
+
+"chainsaw@~0.1.0":
+  "integrity" "sha1-XqtQsor+WAdNDVgpE4iCi15fvJg="
+  "resolved" "https://npm.weizhipin.com/chainsaw/-/chainsaw-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "traverse" ">=0.3.0 <0.4"
 
 "chalk@^2.0.0":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
@@ -1919,6 +2017,11 @@
     "readdirp" "~3.6.0"
   optionalDependencies:
     "fsevents" "~2.3.2"
+
+"chownr@^1.0.1":
+  "integrity" "sha1-b8nXtC0ypYNZYzdmbn0ICE2izGs="
+  "resolved" "https://npm.weizhipin.com/chownr/-/chownr-1.1.4.tgz"
+  "version" "1.1.4"
 
 "chrome-trace-event@^1.0.2":
   "integrity" "sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg=="
@@ -2020,6 +2123,11 @@
   "integrity" "sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ=="
   "resolved" "https://registry.npmjs.org/co/-/co-4.6.0.tgz"
   "version" "4.6.0"
+
+"code-point-at@^1.0.0":
+  "integrity" "sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c="
+  "resolved" "https://npm.weizhipin.com/code-point-at/-/code-point-at-1.1.0.tgz"
+  "version" "1.1.0"
 
 "collect-v8-coverage@^1.0.0":
   "integrity" "sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg=="
@@ -2127,6 +2235,11 @@
   "integrity" "sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw=="
   "resolved" "https://registry.npmjs.org/consola/-/consola-2.15.3.tgz"
   "version" "2.15.3"
+
+"console-control-strings@^1.0.0", "console-control-strings@~1.1.0":
+  "integrity" "sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4="
+  "resolved" "https://npm.weizhipin.com/console-control-strings/-/console-control-strings-1.1.0.tgz"
+  "version" "1.1.0"
 
 "content-disposition@0.5.4":
   "integrity" "sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ=="
@@ -2248,6 +2361,13 @@
   "resolved" "https://npm.weizhipin.com/dayjs/-/dayjs-1.8.36.tgz"
   "version" "1.8.36"
 
+"debug@^2.1.3":
+  "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
+  "resolved" "https://npm.weizhipin.com/debug/-/debug-2.6.9.tgz"
+  "version" "2.6.9"
+  dependencies:
+    "ms" "2.0.0"
+
 "debug@^3.2.6":
   "integrity" "sha1-clgLfpFF+zm2Z2+cXl+xALk0F5o="
   "resolved" "https://npm.weizhipin.com/debug/-/debug-3.2.7.tgz"
@@ -2269,6 +2389,13 @@
   dependencies:
     "ms" "2.0.0"
 
+"decompress-response@^3.3.0":
+  "integrity" "sha1-gKTdMjdIOEv6JICDYirt7Jgq3/M="
+  "resolved" "https://npm.weizhipin.com/decompress-response/-/decompress-response-3.3.0.tgz"
+  "version" "3.3.0"
+  dependencies:
+    "mimic-response" "^1.0.0"
+
 "decompress-response@^4.2.0":
   "integrity" "sha1-QUAjzHowLaJc4uyC0NUjjMr9iYY="
   "resolved" "https://npm.weizhipin.com/decompress-response/-/decompress-response-4.2.1.tgz"
@@ -2280,6 +2407,11 @@
   "integrity" "sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA=="
   "resolved" "https://registry.npmjs.org/dedent/-/dedent-0.7.0.tgz"
   "version" "0.7.0"
+
+"deep-extend@^0.6.0":
+  "integrity" "sha1-xPp8lUBKF6nD6Mp+FTcxK3NjMKw="
+  "resolved" "https://npm.weizhipin.com/deep-extend/-/deep-extend-0.6.0.tgz"
+  "version" "0.6.0"
 
 "deep-is@^0.1.3", "deep-is@~0.1.3":
   "integrity" "sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ=="
@@ -2313,6 +2445,16 @@
   "resolved" "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
   "version" "1.0.0"
 
+"delegates@^1.0.0":
+  "integrity" "sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o="
+  "resolved" "https://npm.weizhipin.com/delegates/-/delegates-1.0.0.tgz"
+  "version" "1.0.0"
+
+"denque@^1.3.0":
+  "integrity" "sha1-B/Zw4pyaePj67LJWah4sEZKcXL8="
+  "resolved" "https://npm.weizhipin.com/denque/-/denque-1.5.1.tgz"
+  "version" "1.5.1"
+
 "denque@^2.0.1":
   "integrity" "sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw=="
   "resolved" "https://registry.npmjs.org/denque/-/denque-2.1.0.tgz"
@@ -2327,6 +2469,11 @@
   "integrity" "sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg=="
   "resolved" "https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz"
   "version" "1.2.0"
+
+"detect-libc@^1.0.3":
+  "integrity" "sha1-+hN8S9aY7fVc1c0CrFWfkaTEups="
+  "resolved" "https://npm.weizhipin.com/detect-libc/-/detect-libc-1.0.3.tgz"
+  "version" "1.0.3"
 
 "detect-newline@^3.0.0":
   "integrity" "sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA=="
@@ -2417,7 +2564,7 @@
   "resolved" "https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz"
   "version" "1.0.2"
 
-"end-of-stream@^1.1.0":
+"end-of-stream@^1.0.0", "end-of-stream@^1.1.0":
   "integrity" "sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q=="
   "resolved" "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.4.tgz"
   "version" "1.4.4"
@@ -2693,6 +2840,11 @@
   "resolved" "https://registry.npmjs.org/exit/-/exit-0.1.2.tgz"
   "version" "0.1.2"
 
+"expand-template@^2.0.3":
+  "integrity" "sha1-bhSz/O4POmNA7LV9LokYaSBSpHw="
+  "resolved" "https://npm.weizhipin.com/expand-template/-/expand-template-2.0.3.tgz"
+  "version" "2.0.3"
+
 "expect@^28.0.0", "expect@^28.1.3":
   "integrity" "sha512-eEh0xn8HlsuOBxFgIss+2mX85VAS4Qy3OSkjV7rlBWljtA4oWH37glVGyOZSZvErDT/yBywZdPGwCXuTvSG85g=="
   "resolved" "https://registry.npmjs.org/expect/-/expect-28.1.3.tgz"
@@ -2829,6 +2981,11 @@
   dependencies:
     "flat-cache" "^3.0.4"
 
+"file-uri-to-path@1.0.0":
+  "integrity" "sha1-VTp7hEb/b2hDWcRF8eN6BdrMM90="
+  "resolved" "https://npm.weizhipin.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz"
+  "version" "1.0.0"
+
 "file-uri-to-path@2":
   "integrity" "sha1-e0Fa66In1XWFHgpbDGQNdlZAP7o="
   "resolved" "https://npm.weizhipin.com/file-uri-to-path/-/file-uri-to-path-2.0.0.tgz"
@@ -2955,6 +3112,11 @@
     "inherits" "^2.0.1"
     "readable-stream" "^2.0.0"
 
+"fs-constants@^1.0.0":
+  "integrity" "sha1-a+Dem+mYzhavivwkSXue6bfM2a0="
+  "resolved" "https://npm.weizhipin.com/fs-constants/-/fs-constants-1.0.0.tgz"
+  "version" "1.0.0"
+
 "fs-extra@^10.0.0", "fs-extra@10.1.0":
   "integrity" "sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ=="
   "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-10.1.0.tgz"
@@ -3000,6 +3162,20 @@
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
   "version" "1.1.1"
+
+"gauge@~2.7.3":
+  "integrity" "sha1-LANAXHU4w51+s3sxcCLjJfsBi/c="
+  "resolved" "https://npm.weizhipin.com/gauge/-/gauge-2.7.4.tgz"
+  "version" "2.7.4"
+  dependencies:
+    "aproba" "^1.0.3"
+    "console-control-strings" "^1.0.0"
+    "has-unicode" "^2.0.0"
+    "object-assign" "^4.1.0"
+    "signal-exit" "^3.0.0"
+    "string-width" "^1.0.1"
+    "strip-ansi" "^3.0.1"
+    "wide-align" "^1.1.0"
 
 "generate-function@^2.3.1":
   "integrity" "sha512-eeB5GfMNeevm/GRYq20ShmsaGcmI81kIX2K9XQx5miC8KdHaC6Jm0qQ8ZNeGOi7wYB8OsdxKs+Y2oVuTFuVwKQ=="
@@ -3065,6 +3241,11 @@
   "integrity" "sha1-WZrBkrcYdYJeE6RF86bgURjC90U="
   "resolved" "https://npm.weizhipin.com/git-sha1/-/git-sha1-0.1.2.tgz"
   "version" "0.1.2"
+
+"github-from-package@0.0.0":
+  "integrity" "sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4="
+  "resolved" "https://npm.weizhipin.com/github-from-package/-/github-from-package-0.0.0.tgz"
+  "version" "0.0.0"
 
 "glob-parent@^5.1.2", "glob-parent@~5.1.2":
   "integrity" "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="
@@ -3159,6 +3340,11 @@
   "version" "1.0.0"
   dependencies:
     "has-symbols" "^1.0.2"
+
+"has-unicode@^2.0.0":
+  "integrity" "sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk="
+  "resolved" "https://npm.weizhipin.com/has-unicode/-/has-unicode-2.0.1.tgz"
+  "version" "2.0.1"
 
 "has@^1.0.3":
   "integrity" "sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw=="
@@ -3278,7 +3464,7 @@
   "resolved" "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   "version" "2.0.4"
 
-"ini@^1.3.5":
+"ini@^1.3.5", "ini@~1.3.0":
   "integrity" "sha1-op2kJbSIBvNHZ6Tvzjlyaa8oQyw="
   "resolved" "https://npm.weizhipin.com/ini/-/ini-1.3.8.tgz"
   "version" "1.3.8"
@@ -3392,6 +3578,13 @@
   "integrity" "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ=="
   "resolved" "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz"
   "version" "2.1.1"
+
+"is-fullwidth-code-point@^1.0.0":
+  "integrity" "sha1-754xOG8DGn8NZDr4L95QxFfvAMs="
+  "resolved" "https://npm.weizhipin.com/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "number-is-nan" "^1.0.0"
 
 "is-fullwidth-code-point@^3.0.0":
   "integrity" "sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg=="
@@ -3983,6 +4176,27 @@
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
+"kafka-node@^5.0.0":
+  "integrity" "sha1-S29lzB136+VlhZ37j5V17RXVQ8A="
+  "resolved" "https://npm.weizhipin.com/kafka-node/-/kafka-node-5.0.0.tgz"
+  "version" "5.0.0"
+  dependencies:
+    "async" "^2.6.2"
+    "binary" "~0.3.0"
+    "bl" "^2.2.0"
+    "buffer-crc32" "~0.2.5"
+    "buffermaker" "~1.2.0"
+    "debug" "^2.1.3"
+    "denque" "^1.3.0"
+    "lodash" "^4.17.4"
+    "minimatch" "^3.0.2"
+    "nested-error-stacks" "^2.0.0"
+    "optional" "^0.1.3"
+    "retry" "^0.10.1"
+    "uuid" "^3.0.0"
+  optionalDependencies:
+    "snappy" "^6.0.1"
+
 "kleur@^3.0.3":
   "integrity" "sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w=="
   "resolved" "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz"
@@ -4058,7 +4272,7 @@
   "resolved" "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
   "version" "4.6.2"
 
-"lodash@^4.17.14", "lodash@^4.17.19", "lodash@^4.17.21", "lodash@4.17.21":
+"lodash@^4.17.14", "lodash@^4.17.19", "lodash@^4.17.21", "lodash@^4.17.4", "lodash@4.17.21":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -4102,6 +4316,11 @@
   "integrity" "sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA=="
   "resolved" "https://registry.npmjs.org/long/-/long-4.0.0.tgz"
   "version" "4.0.0"
+
+"long@1.1.2":
+  "integrity" "sha1-6u9ZUcp1UdlpJrgtokLbnWso+1M="
+  "resolved" "https://npm.weizhipin.com/long/-/long-1.1.2.tgz"
+  "version" "1.1.2"
 
 "lru-cache@^4.1.3":
   "integrity" "sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g=="
@@ -4223,24 +4442,29 @@
   "resolved" "https://registry.npmjs.org/mimic-fn/-/mimic-fn-2.1.0.tgz"
   "version" "2.1.0"
 
+"mimic-response@^1.0.0":
+  "integrity" "sha1-SSNTiHju9CBjy4o+OweYeBSHqxs="
+  "resolved" "https://npm.weizhipin.com/mimic-response/-/mimic-response-1.0.1.tgz"
+  "version" "1.0.1"
+
 "mimic-response@^2.0.0":
   "integrity" "sha1-0Tdj019hPQnsN+uzC6wEacDuj0M="
   "resolved" "https://npm.weizhipin.com/mimic-response/-/mimic-response-2.1.0.tgz"
   "version" "2.1.0"
 
-"minimatch@^3.0.4", "minimatch@^3.0.5", "minimatch@^3.1.1", "minimatch@^3.1.2":
+"minimatch@^3.0.2", "minimatch@^3.0.4", "minimatch@^3.0.5", "minimatch@^3.1.1", "minimatch@^3.1.2":
   "integrity" "sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw=="
   "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
   "version" "3.1.2"
   dependencies:
     "brace-expansion" "^1.1.7"
 
-"minimist@^1.2.6":
+"minimist@^1.2.0", "minimist@^1.2.6":
   "integrity" "sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g=="
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.7.tgz"
   "version" "1.2.7"
 
-"mkdirp@^0.5.4":
+"mkdirp@^0.5.1", "mkdirp@^0.5.4":
   "integrity" "sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw=="
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.6.tgz"
   "version" "0.5.6"
@@ -4325,6 +4549,16 @@
   dependencies:
     "lru-cache" "^4.1.3"
 
+"nan@^2.14.1":
+  "integrity" "sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ=="
+  "resolved" "https://npm.weizhipin.com/nan/-/nan-2.17.0.tgz"
+  "version" "2.17.0"
+
+"napi-build-utils@^1.0.1":
+  "integrity" "sha1-sf3cCyxG44Cgt6dvmE3UfEGhOAY="
+  "resolved" "https://npm.weizhipin.com/napi-build-utils/-/napi-build-utils-1.0.2.tgz"
+  "version" "1.0.2"
+
 "natural-compare-lite@^1.4.0":
   "integrity" "sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g=="
   "resolved" "https://registry.npmjs.org/natural-compare-lite/-/natural-compare-lite-1.4.0.tgz"
@@ -4354,10 +4588,22 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"nested-error-stacks@^2.0.0":
+  "integrity" "sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw=="
+  "resolved" "https://npm.weizhipin.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz"
+  "version" "2.1.1"
+
 "netmask@^2.0.2":
   "integrity" "sha1-iwGgdkQGXVNjg4NYI7xSAE66xec="
   "resolved" "https://npm.weizhipin.com/netmask/-/netmask-2.0.2.tgz"
   "version" "2.0.2"
+
+"node-abi@^2.7.0":
+  "integrity" "sha1-xDfUsf4OKFqvKQ1FtF1Nev7axM8="
+  "resolved" "https://npm.weizhipin.com/node-abi/-/node-abi-2.30.1.tgz"
+  "version" "2.30.1"
+  dependencies:
+    "semver" "^5.4.1"
 
 "node-abort-controller@^3.0.1":
   "integrity" "sha512-/ujIVxthRs+7q6hsdjHMaj8hRG9NuWmwrz+JdRwZ14jdFoKSkm+vDsCbF9PLpnSqjaWQJuTmVtcWHNLr+vrOFw=="
@@ -4388,6 +4634,11 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.6.tgz"
   "version" "2.0.6"
 
+"noop-logger@^0.1.1":
+  "integrity" "sha1-lKKxYzxPExdVMAfYlm/Q6EG2pMI="
+  "resolved" "https://npm.weizhipin.com/noop-logger/-/noop-logger-0.1.1.tgz"
+  "version" "0.1.1"
+
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
   "resolved" "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"
@@ -4400,6 +4651,16 @@
   dependencies:
     "path-key" "^3.0.0"
 
+"npmlog@^4.0.1":
+  "integrity" "sha1-CKfyqL9zRgR3mp76StXMcXq7lUs="
+  "resolved" "https://npm.weizhipin.com/npmlog/-/npmlog-4.1.2.tgz"
+  "version" "4.1.2"
+  dependencies:
+    "are-we-there-yet" "~1.1.2"
+    "console-control-strings" "~1.1.0"
+    "gauge" "~2.7.3"
+    "set-blocking" "~2.0.0"
+
 "nssocket@0.6.0":
   "integrity" "sha1-Wflvb/MhVm8zxw99vu7N/cBxVPo="
   "resolved" "https://npm.weizhipin.com/nssocket/-/nssocket-0.6.0.tgz"
@@ -4408,7 +4669,12 @@
     "eventemitter2" "~0.4.14"
     "lazy" "~1.0.11"
 
-"object-assign@^4", "object-assign@^4.0.1", "object-assign@^4.1.1":
+"number-is-nan@^1.0.0":
+  "integrity" "sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0="
+  "resolved" "https://npm.weizhipin.com/number-is-nan/-/number-is-nan-1.0.1.tgz"
+  "version" "1.0.1"
+
+"object-assign@^4", "object-assign@^4.0.1", "object-assign@^4.1.0", "object-assign@^4.1.1":
   "integrity" "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="
   "resolved" "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
   "version" "4.1.1"
@@ -4451,6 +4717,11 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
+"optional@^0.1.3":
+  "integrity" "sha1-zbGpvtxzfSAl9pDO61DgSURP1bM="
+  "resolved" "https://npm.weizhipin.com/optional/-/optional-0.1.4.tgz"
+  "version" "0.1.4"
+
 "optionator@^0.8.1":
   "integrity" "sha1-hPodA2/p08fiHZmIS2ARZ+yPtJU="
   "resolved" "https://npm.weizhipin.com/optionator/-/optionator-0.8.3.tgz"
@@ -4489,6 +4760,11 @@
     "log-symbols" "^4.1.0"
     "strip-ansi" "^6.0.0"
     "wcwidth" "^1.0.1"
+
+"os-homedir@^1.0.1":
+  "integrity" "sha1-/7xJiDNuDoM94MFox+8VISGqf7M="
+  "resolved" "https://npm.weizhipin.com/os-homedir/-/os-homedir-1.0.2.tgz"
+  "version" "1.0.2"
 
 "os-name@4.0.1":
   "integrity" "sha512-xl9MAoU97MH1Xt5K9ERft2YfCAoaO6msy1OBA0ozxEC0x0TmIoE6K3QvgJMMZA9yKGLmHXNY/YZoDbiGDj4zYw=="
@@ -4791,6 +5067,28 @@
   optionalDependencies:
     "pm2-sysmonit" "^1.2.8"
 
+"prebuild-install@5.3.0":
+  "integrity" "sha1-WLTYNE4DWQmQkx7giN1UAbAwBMg="
+  "resolved" "https://npm.weizhipin.com/prebuild-install/-/prebuild-install-5.3.0.tgz"
+  "version" "5.3.0"
+  dependencies:
+    "detect-libc" "^1.0.3"
+    "expand-template" "^2.0.3"
+    "github-from-package" "0.0.0"
+    "minimist" "^1.2.0"
+    "mkdirp" "^0.5.1"
+    "napi-build-utils" "^1.0.1"
+    "node-abi" "^2.7.0"
+    "noop-logger" "^0.1.1"
+    "npmlog" "^4.0.1"
+    "os-homedir" "^1.0.1"
+    "pump" "^2.0.1"
+    "rc" "^1.2.7"
+    "simple-get" "^2.7.0"
+    "tar-fs" "^1.13.0"
+    "tunnel-agent" "^0.6.0"
+    "which-pm-runs" "^1.0.0"
+
 "prelude-ls@^1.2.1":
   "integrity" "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
@@ -4875,6 +5173,22 @@
   "resolved" "https://registry.npmjs.org/pseudomap/-/pseudomap-1.0.2.tgz"
   "version" "1.0.2"
 
+"pump@^1.0.0":
+  "integrity" "sha1-Xf6DEcM7v2/BgmH580cCxHwIqVQ="
+  "resolved" "https://npm.weizhipin.com/pump/-/pump-1.0.3.tgz"
+  "version" "1.0.3"
+  dependencies:
+    "end-of-stream" "^1.1.0"
+    "once" "^1.3.1"
+
+"pump@^2.0.1":
+  "integrity" "sha1-Ejma3W5M91Jtlzy8i1zi4pCLOQk="
+  "resolved" "https://npm.weizhipin.com/pump/-/pump-2.0.1.tgz"
+  "version" "2.0.1"
+  dependencies:
+    "end-of-stream" "^1.1.0"
+    "once" "^1.3.1"
+
 "pump@^3.0.0":
   "integrity" "sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww=="
   "resolved" "https://registry.npmjs.org/pump/-/pump-3.0.0.tgz"
@@ -4927,6 +5241,16 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
+"rc@^1.2.7":
+  "integrity" "sha1-zZJL9SAKB1uDwYjNa54hG3/A0+0="
+  "resolved" "https://npm.weizhipin.com/rc/-/rc-1.2.8.tgz"
+  "version" "1.2.8"
+  dependencies:
+    "deep-extend" "^0.6.0"
+    "ini" "~1.3.0"
+    "minimist" "^1.2.0"
+    "strip-json-comments" "~2.0.1"
+
 "react-is@^18.0.0":
   "integrity" "sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
@@ -4939,7 +5263,7 @@
   dependencies:
     "mute-stream" "~0.0.4"
 
-"readable-stream@^2.0.0", "readable-stream@^2.2.2":
+"readable-stream@^2.0.0", "readable-stream@^2.0.6", "readable-stream@^2.2.2", "readable-stream@^2.3.0", "readable-stream@^2.3.5":
   "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
   "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
   "version" "2.3.7"
@@ -5062,6 +5386,11 @@
     "onetime" "^5.1.0"
     "signal-exit" "^3.0.2"
 
+"retry@^0.10.1":
+  "integrity" "sha1-52OI0heZLCUnUCQdPTlW/tmNj/Q="
+  "resolved" "https://npm.weizhipin.com/retry/-/retry-0.10.1.tgz"
+  "version" "0.10.1"
+
 "reusify@^1.0.4":
   "integrity" "sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw=="
   "resolved" "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz"
@@ -5117,7 +5446,7 @@
   dependencies:
     "tslib" "^1.9.0"
 
-"safe-buffer@^5.0.1", "safe-buffer@^5.1.0", "safe-buffer@^5.2.1", "safe-buffer@~5.2.0", "safe-buffer@5.2.1":
+"safe-buffer@^5.0.1", "safe-buffer@^5.1.0", "safe-buffer@^5.1.1", "safe-buffer@^5.2.1", "safe-buffer@~5.2.0", "safe-buffer@5.2.1":
   "integrity" "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
   "resolved" "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz"
   "version" "5.2.1"
@@ -5152,6 +5481,11 @@
     "ajv-keywords" "^3.5.2"
 
 "semver@^5.3.0":
+  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
+  "resolved" "https://npm.weizhipin.com/semver/-/semver-5.7.1.tgz"
+  "version" "5.7.1"
+
+"semver@^5.4.1":
   "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
   "resolved" "https://npm.weizhipin.com/semver/-/semver-5.7.1.tgz"
   "version" "5.7.1"
@@ -5229,6 +5563,11 @@
     "parseurl" "~1.3.3"
     "send" "0.18.0"
 
+"set-blocking@~2.0.0":
+  "integrity" "sha1-BF+XgtARrppoA93TgrJDkrPYkPc="
+  "resolved" "https://npm.weizhipin.com/set-blocking/-/set-blocking-2.0.0.tgz"
+  "version" "2.0.0"
+
 "setprototypeof@1.2.0":
   "integrity" "sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw=="
   "resolved" "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz"
@@ -5277,10 +5616,24 @@
     "get-intrinsic" "^1.0.2"
     "object-inspect" "^1.9.0"
 
-"signal-exit@^3.0.2", "signal-exit@^3.0.3", "signal-exit@^3.0.7":
+"signal-exit@^3.0.0", "signal-exit@^3.0.2", "signal-exit@^3.0.3", "signal-exit@^3.0.7":
   "integrity" "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ=="
   "resolved" "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   "version" "3.0.7"
+
+"simple-concat@^1.0.0":
+  "integrity" "sha1-9Gl2CCujXCJj8cirXt/ibEHJVS8="
+  "resolved" "https://npm.weizhipin.com/simple-concat/-/simple-concat-1.0.1.tgz"
+  "version" "1.0.1"
+
+"simple-get@^2.7.0":
+  "integrity" "sha512-Ijd/rV5o+mSBBs4F/x9oDPtTx9Zb6X9brmnXvMW4J7IR15ngi9q5xxqWBKU744jTZiaXtxaPL7uHG6vtN8kUkw=="
+  "resolved" "https://npm.weizhipin.com/simple-get/-/simple-get-2.8.2.tgz"
+  "version" "2.8.2"
+  dependencies:
+    "decompress-response" "^3.3.0"
+    "once" "^1.3.1"
+    "simple-concat" "^1.0.0"
 
 "simple-swizzle@^0.2.2":
   "integrity" "sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo="
@@ -5303,6 +5656,15 @@
   "integrity" "sha1-bh1x+k8YwF99D/IW3RakgdDo2a4="
   "resolved" "https://npm.weizhipin.com/smart-buffer/-/smart-buffer-4.2.0.tgz"
   "version" "4.2.0"
+
+"snappy@^6.0.1":
+  "integrity" "sha1-wUuN6o6bwmh4dbXkkdFd2QDmAjw="
+  "resolved" "https://npm.weizhipin.com/snappy/-/snappy-6.3.5.tgz"
+  "version" "6.3.5"
+  dependencies:
+    "bindings" "^1.3.1"
+    "nan" "^2.14.1"
+    "prebuild-install" "5.3.0"
 
 "socks-proxy-agent@^5.0.0", "socks-proxy-agent@5":
   "integrity" "sha1-Ay+1gwSKKev/7C5qc/ygdh9IF34="
@@ -5459,7 +5821,16 @@
     "char-regex" "^1.0.2"
     "strip-ansi" "^6.0.0"
 
-"string-width@^4.1.0", "string-width@^4.2.0", "string-width@^4.2.3":
+"string-width@^1.0.1":
+  "integrity" "sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M="
+  "resolved" "https://npm.weizhipin.com/string-width/-/string-width-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "code-point-at" "^1.0.0"
+    "is-fullwidth-code-point" "^1.0.0"
+    "strip-ansi" "^3.0.0"
+
+"string-width@^1.0.2 || 2 || 3 || 4", "string-width@^4.1.0", "string-width@^4.2.0", "string-width@^4.2.3":
   "integrity" "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g=="
   "resolved" "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   "version" "4.2.3"
@@ -5467,6 +5838,13 @@
     "emoji-regex" "^8.0.0"
     "is-fullwidth-code-point" "^3.0.0"
     "strip-ansi" "^6.0.1"
+
+"strip-ansi@^3.0.0", "strip-ansi@^3.0.1":
+  "integrity" "sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8="
+  "resolved" "https://npm.weizhipin.com/strip-ansi/-/strip-ansi-3.0.1.tgz"
+  "version" "3.0.1"
+  dependencies:
+    "ansi-regex" "^2.0.0"
 
 "strip-ansi@^6.0.0", "strip-ansi@^6.0.1":
   "integrity" "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A=="
@@ -5494,6 +5872,11 @@
   "integrity" "sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig=="
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
   "version" "3.1.1"
+
+"strip-json-comments@~2.0.1":
+  "integrity" "sha1-PFMZQukIwml8DsNEhYwobHygpgo="
+  "resolved" "https://npm.weizhipin.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz"
+  "version" "2.0.1"
 
 "superagent@^8.0.3":
   "integrity" "sha512-yaQB7YqAHhutt8yU7XIRKXGXtkxKidVuiDJ8FJPBG7JPd7Ckv4X9cOdxVGH5DFsPXodsCrOSzdUi2xL+o9z1qw=="
@@ -5567,6 +5950,29 @@
   "integrity" "sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ=="
   "resolved" "https://registry.npmjs.org/tapable/-/tapable-2.2.1.tgz"
   "version" "2.2.1"
+
+"tar-fs@^1.13.0":
+  "integrity" "sha1-lmpiiEHaLEAQQGqCFny9Xgxy1Qk="
+  "resolved" "https://npm.weizhipin.com/tar-fs/-/tar-fs-1.16.3.tgz"
+  "version" "1.16.3"
+  dependencies:
+    "chownr" "^1.0.1"
+    "mkdirp" "^0.5.1"
+    "pump" "^1.0.0"
+    "tar-stream" "^1.1.2"
+
+"tar-stream@^1.1.2":
+  "integrity" "sha1-jqVdqzeXIlPZqa+Q/c1VmuQ1xVU="
+  "resolved" "https://npm.weizhipin.com/tar-stream/-/tar-stream-1.6.2.tgz"
+  "version" "1.6.2"
+  dependencies:
+    "bl" "^1.0.0"
+    "buffer-alloc" "^1.2.0"
+    "end-of-stream" "^1.0.0"
+    "fs-constants" "^1.0.0"
+    "readable-stream" "^2.3.0"
+    "to-buffer" "^1.1.1"
+    "xtend" "^4.0.0"
 
 "terminal-link@^2.0.0":
   "integrity" "sha512-un0FmiRUQNr5PJqy9kP7c40F5BOfpGlYTrxonDChEZB7pzZxRNp/bt+ymiy9/npwXya9KH99nJ/GXFIiUkYGFQ=="
@@ -5647,6 +6053,11 @@
   "resolved" "https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz"
   "version" "1.0.5"
 
+"to-buffer@^1.1.1":
+  "integrity" "sha1-STvUj2LXxD/N7TE6A9ytsuEhOoA="
+  "resolved" "https://npm.weizhipin.com/to-buffer/-/to-buffer-1.1.1.tgz"
+  "version" "1.1.1"
+
 "to-fast-properties@^2.0.0":
   "integrity" "sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog=="
   "resolved" "https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz"
@@ -5668,6 +6079,11 @@
   "integrity" "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
   "resolved" "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
   "version" "0.0.3"
+
+"traverse@>=0.3.0 <0.4":
+  "integrity" "sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk="
+  "resolved" "https://npm.weizhipin.com/traverse/-/traverse-0.3.9.tgz"
+  "version" "0.3.9"
 
 "tree-kill@1.2.2":
   "integrity" "sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A=="
@@ -5775,6 +6191,13 @@
   "version" "3.21.0"
   dependencies:
     "tslib" "^1.8.1"
+
+"tunnel-agent@^0.6.0":
+  "integrity" "sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0="
+  "resolved" "https://npm.weizhipin.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz"
+  "version" "0.6.0"
+  dependencies:
+    "safe-buffer" "^5.0.1"
 
 "tv4@^1.3.0":
   "integrity" "sha1-0CDIRvrdUMhVq7JeuuzGj8EPeWM="
@@ -5914,6 +6337,11 @@
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
 
+"uuid@^3.0.0":
+  "integrity" "sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4="
+  "resolved" "https://npm.weizhipin.com/uuid/-/uuid-3.4.0.tgz"
+  "version" "3.4.0"
+
 "uuid@^3.2.1":
   "integrity" "sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4="
   "resolved" "https://npm.weizhipin.com/uuid/-/uuid-3.4.0.tgz"
@@ -6051,6 +6479,11 @@
     "tr46" "~0.0.3"
     "webidl-conversions" "^3.0.0"
 
+"which-pm-runs@^1.0.0":
+  "integrity" "sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA=="
+  "resolved" "https://npm.weizhipin.com/which-pm-runs/-/which-pm-runs-1.1.0.tgz"
+  "version" "1.1.0"
+
 "which-typed-array@^1.1.2":
   "integrity" "sha512-w9c4xkx6mPidwp7180ckYWfMmvxpjlZuIudNtDf4N/tTAUB8VJbX25qZoAsrtGuYNnGw3pa0AXgbGKRB8/EceA=="
   "resolved" "https://npm.weizhipin.com/which-typed-array/-/which-typed-array-1.1.9.tgz"
@@ -6069,6 +6502,13 @@
   "version" "2.0.2"
   dependencies:
     "isexe" "^2.0.0"
+
+"wide-align@^1.1.0":
+  "integrity" "sha1-3x1MIGhUNp7PPJpImPGyP72dFdM="
+  "resolved" "https://npm.weizhipin.com/wide-align/-/wide-align-1.1.5.tgz"
+  "version" "1.1.5"
+  dependencies:
+    "string-width" "^1.0.2 || 2 || 3 || 4"
 
 "windows-release@^4.0.0":
   "integrity" "sha512-OxmV4wzDKB1x7AZaZgXMVsdJ1qER1ed83ZrTYd5Bwq2HfJVg3DJS8nqlAG4sMoJ7mu8cuRmLEYyU13BKwctRAg=="
