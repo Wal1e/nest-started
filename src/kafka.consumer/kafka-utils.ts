@@ -20,12 +20,16 @@ function getKafakaClient(): kafka.KafkaClient {
  * @description 获取kafka消费者实例
  */
 export const getKafkaConsumer = () => {
-  const topic = kafkaConfig.topic;
+  const topic_foo = kafkaConfig.topic.foo;
+  const topic_boo = kafkaConfig.topic.boo;
   // 设置了几个分区，就要在收到offsetOutOfRange时，分别在所有分区的有效负载中设置新的偏移量
   const topics = [
-    { topic, partition: 0 },
-    { topic, partition: 1 },
-    { topic, partition: 2 },
+    { topic: topic_foo, partition: 0 },
+    { topic: topic_foo, partition: 1 },
+    { topic: topic_foo, partition: 2 },
+    { topic: topic_boo, partition: 0 },
+    { topic: topic_boo, partition: 1 },
+    { topic: topic_boo, partition: 2 },
   ];
   // Auto commit config
   // const options = {
@@ -47,9 +51,6 @@ export const getKafkaConsumer = () => {
   kafkaConsumer.on('message', function (message) {
     // console.log('message');
     const value = JSON.parse(message.value as string);
-    if (value.event === 'clientLog') {
-      console.log('consumer receive message:', message);
-    }
   });
 
   const offset = new kafka.Offset(kafkaClient);
@@ -57,13 +58,21 @@ export const getKafkaConsumer = () => {
     console.log('offsetOutOfRange');
     offset.fetch(topics, (err, offsets) => {
       // 设置了几个分区，就要在收到offsetOutOfRange时，分别在所有分区的有效负载中设置新的偏移量
-      const min0 = Math.min.apply(null, offsets[topic]['0']);
-      const min1 = Math.min.apply(null, offsets[topic]['1']);
-      const min2 = Math.min.apply(null, offsets[topic]['2']);
-      console.log('offsets==', offsets, min0);
-      kafkaConsumer.setOffset(topic, 0, min0);
-      kafkaConsumer.setOffset(topic, 1, min1);
-      kafkaConsumer.setOffset(topic, 2, min2);
+      const topic_foo_min0 = Math.min.apply(null, offsets[topic_foo]['0']);
+      const topic_foo_min1 = Math.min.apply(null, offsets[topic_foo]['1']);
+      const topic_foo_min2 = Math.min.apply(null, offsets[topic_foo]['2']);
+      console.log('offsets==', offsets, topic_foo_min0);
+      kafkaConsumer.setOffset(topic_foo, 0, topic_foo_min0);
+      kafkaConsumer.setOffset(topic_foo, 1, topic_foo_min1);
+      kafkaConsumer.setOffset(topic_foo, 2, topic_foo_min2);
+
+      const topic_boo_min0 = Math.min.apply(null, offsets[topic_boo]['0']);
+      const topic_boo_min1 = Math.min.apply(null, offsets[topic_boo]['1']);
+      const topic_boo_min2 = Math.min.apply(null, offsets[topic_boo]['2']);
+      console.log('offsets==', offsets, topic_boo_min0);
+      kafkaConsumer.setOffset(topic_boo, 0, topic_boo_min0);
+      kafkaConsumer.setOffset(topic_boo, 1, topic_boo_min1);
+      kafkaConsumer.setOffset(topic_boo, 2, topic_boo_min2);
     });
   });
   return kafkaConsumer;
