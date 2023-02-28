@@ -54,26 +54,34 @@ export const getKafkaConsumer = () => {
   });
 
   const offset = new kafka.Offset(kafkaClient);
+  // 添加节流throttleFalg, 防止多次重复设置offset
+  let throttleFlag = false;
   kafkaConsumer.on('offsetOutOfRange', function (err) {
     console.log('offsetOutOfRange');
-    offset.fetch(topics, (err, offsets) => {
-      // 设置了几个分区，就要在收到offsetOutOfRange时，分别在所有分区的有效负载中设置新的偏移量
-      const topic_foo_min0 = Math.min.apply(null, offsets[topic_foo]['0']);
-      const topic_foo_min1 = Math.min.apply(null, offsets[topic_foo]['1']);
-      const topic_foo_min2 = Math.min.apply(null, offsets[topic_foo]['2']);
-      console.log('offsets==', offsets, topic_foo_min0);
-      kafkaConsumer.setOffset(topic_foo, 0, topic_foo_min0);
-      kafkaConsumer.setOffset(topic_foo, 1, topic_foo_min1);
-      kafkaConsumer.setOffset(topic_foo, 2, topic_foo_min2);
+    if (!throttleFlag) {
+      offset.fetch(topics, (err, offsets) => {
+        // 设置了几个分区，就要在收到offsetOutOfRange时，分别在所有分区的有效负载中设置新的偏移量
+        const topic_foo_min0 = Math.min.apply(null, offsets[topic_foo]['0']);
+        const topic_foo_min1 = Math.min.apply(null, offsets[topic_foo]['1']);
+        const topic_foo_min2 = Math.min.apply(null, offsets[topic_foo]['2']);
+        console.log('offsets==', offsets, topic_foo_min0);
+        kafkaConsumer.setOffset(topic_foo, 0, topic_foo_min0);
+        kafkaConsumer.setOffset(topic_foo, 1, topic_foo_min1);
+        kafkaConsumer.setOffset(topic_foo, 2, topic_foo_min2);
 
-      const topic_boo_min0 = Math.min.apply(null, offsets[topic_boo]['0']);
-      const topic_boo_min1 = Math.min.apply(null, offsets[topic_boo]['1']);
-      const topic_boo_min2 = Math.min.apply(null, offsets[topic_boo]['2']);
-      console.log('offsets==', offsets, topic_boo_min0);
-      kafkaConsumer.setOffset(topic_boo, 0, topic_boo_min0);
-      kafkaConsumer.setOffset(topic_boo, 1, topic_boo_min1);
-      kafkaConsumer.setOffset(topic_boo, 2, topic_boo_min2);
-    });
+        const topic_boo_min0 = Math.min.apply(null, offsets[topic_boo]['0']);
+        const topic_boo_min1 = Math.min.apply(null, offsets[topic_boo]['1']);
+        const topic_boo_min2 = Math.min.apply(null, offsets[topic_boo]['2']);
+        console.log('offsets==', offsets, topic_boo_min0);
+        kafkaConsumer.setOffset(topic_boo, 0, topic_boo_min0);
+        kafkaConsumer.setOffset(topic_boo, 1, topic_boo_min1);
+        kafkaConsumer.setOffset(topic_boo, 2, topic_boo_min2);
+      });
+      throttleFlag = true;
+      setTimeout(() => {
+        throttleFlag = false;
+      }, 1000);
+    }
   });
   return kafkaConsumer;
 };
