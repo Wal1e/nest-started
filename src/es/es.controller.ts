@@ -42,12 +42,16 @@ export class EsController {
           logMessage: { type: 'keyword' },
           reportTime: { type: 'date' },
           createTime: { type: 'date' },
+          user: {
+            properties: {
+              name: { type: 'text' },
+              hobbies: { type: 'text' },
+            },
+          },
           locationInfo: {
             properties: {
               timestamp: { type: 'integer' }, // 定位数据的时间戳
               location: { type: 'text' }, // 经纬度换算后的具体地理位置
-              latitude: { type: 'float' }, // 纬度， 范围为-90~90，正数表示北，负数表示南
-              longitude: { type: 'float' }, // 经度，范围为-180~180，正数表示东，负数表示西
             },
           },
         },
@@ -67,6 +71,10 @@ export class EsController {
   @Put('index/doc/:indexName')
   async indexDoc(@Param('indexName') indexName, @Body() post) {
     console.log('indexDoc-post==', post);
+    post.user = {
+      name: 'iOS 16.0',
+      hobbies: 'football',
+    };
     try {
       const res = await this.esService.index({
         index: indexName,
@@ -220,7 +228,8 @@ export class EsController {
    */
   @Post('bulk')
   async bulkOperation() {
-    console.log('bulk');
+    const res = this.esService.getByQuery('');
+    return res;
   }
 
   /**
@@ -229,5 +238,14 @@ export class EsController {
   @Post('pans/api/batchBulk')
   async batchBulkData(@Body() post) {
     console.log('query');
+  }
+
+  /**
+   * 埋点sdk sendlog会一次上报1-10条数据，批量添加数据
+   */
+  @Get('matchText/:indexName')
+  async matchText(@Param('indexName') indexName) {
+    const res = this.esService.getByQuery(indexName);
+    return res;
   }
 }
