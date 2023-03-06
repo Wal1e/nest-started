@@ -140,6 +140,14 @@ export class EsService {
 
   async getByQuery(indexName) {
     const body = {
+      aggs: {
+        hobbies: {
+          terms: { field: 'user.hobbies.raw' },
+        },
+        lasts: {
+          terms: { field: 'foo.last.keyword' },
+        },
+      },
       // query: {
       //   bool: {
       //     must: [
@@ -165,13 +173,13 @@ export class EsService {
       //     },
       //   },
       // },
-      query: {
-        match: {
-          'user.name': {
-            query: 'iOS',
-          },
-        },
-      },
+      // query: {
+      //   match: {
+      //     'user.name': {
+      //       query: 'iOS',
+      //     },
+      //   },
+      // },
       // query: {
       //   fuzzy: {
       //     appId: {
@@ -184,6 +192,20 @@ export class EsService {
     return await this.esService.search({
       index: indexName,
       body,
+    });
+  }
+
+  async setFielddata(indexName) {
+    this.esService.indices.putMapping({
+      index: indexName,
+      body: {
+        properties: {
+          'user.hobbies': {
+            type: 'text',
+            fielddata: true,
+          },
+        },
+      },
     });
   }
 }
