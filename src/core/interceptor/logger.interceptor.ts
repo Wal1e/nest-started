@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 @Injectable()
 export class LoggerInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    // 在middleware、guard执行之后执行intercept before勾子
+    // 在middleware、guard完整执行之后执行intercept before勾子
     console.log('Before...');
     const now = Date.now();
     // 在pipe、controller执行之后拿到数据库结果后执行intercept after勾子

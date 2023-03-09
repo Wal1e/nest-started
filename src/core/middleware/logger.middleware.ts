@@ -46,7 +46,7 @@ export class LoggerMiddleware implements NestMiddleware {
       Logger.warn(logFormat);
     } else {
       Logger.access(logFormat);
-      Logger.log(logFormat);
+      // Logger.log(logFormat);
     }
     // next(
     //   new HttpException(

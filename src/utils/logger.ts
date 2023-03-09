@@ -132,6 +132,7 @@ export class Logger {
   }
 
   // 日志追踪，可以追溯到哪个文件、第几行第几列
+  // StackTrace 可参考 https://www.npmjs.com/package/stacktrace-js
   static getStackTrace(deep = 2): string {
     const stackList: StackTrace.StackFrame[] = StackTrace.getSync();
     const stackInfo: StackTrace.StackFrame = stackList[deep];

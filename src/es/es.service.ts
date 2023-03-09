@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
+import { indexName } from 'config/env';
 
 @Injectable()
 export class EsService {
@@ -18,14 +19,14 @@ export class EsService {
     return await this.esService.cat.indices({});
   }
   // 新建索引
-  public async createIndex(indexName, body) {
+  public async createIndex(body) {
     return await this.esService.indices.create({
       index: indexName,
       body,
     });
   }
   // 删除索引
-  public async deleteIndex(indexName) {
+  public async deleteIndex() {
     return await this.esService.indices.delete({
       index: indexName,
     });
@@ -65,7 +66,7 @@ export class EsService {
   }
 
   // 获取索引映射
-  async getMapping(indexName) {
+  async getMapping() {
     return await this.esService.indices.getMapping({
       index: indexName,
     });
@@ -116,38 +117,15 @@ export class EsService {
       body: {
         query: {
           fuzzy: {
-            'name.first': 'wa',
-          },
-        },
-      },
-    });
-  }
-  /**
-   * match query
-   */
-  async matchSearch() {
-    return await this.esService.search({
-      index: 'test',
-      body: {
-        query: {
-          match: {
-            'name.first': 'wa',
+            'name.name': 'ios',
           },
         },
       },
     });
   }
 
-  async getByQuery(indexName) {
+  async getByQuery() {
     const body = {
-      aggs: {
-        hobbies: {
-          terms: { field: 'user.hobbies.raw' },
-        },
-        lasts: {
-          terms: { field: 'foo.last.keyword' },
-        },
-      },
       // query: {
       //   bool: {
       //     must: [
@@ -173,13 +151,13 @@ export class EsService {
       //     },
       //   },
       // },
-      // query: {
-      //   match: {
-      //     'user.name': {
-      //       query: 'iOS',
-      //     },
-      //   },
-      // },
+      query: {
+        match: {
+          'user.hobbies': {
+            query: 'iOS',
+          },
+        },
+      },
       // query: {
       //   fuzzy: {
       //     appId: {
@@ -195,14 +173,54 @@ export class EsService {
     });
   }
 
-  async setFielddata(indexName) {
+  /**
+   * match query
+   */
+  async matchSearch() {
+    return await this.esService.search({
+      index: indexName,
+      body: {
+        query: {
+          match: {
+            'foo.last': 'goog',
+            // 'user.hobbies': 'football',
+          },
+          // match_phrase_prefix: {
+          //   'user.name': {
+          //     query: 'ios',
+          //   },
+          // },
+        },
+      },
+    });
+  }
+
+  async aggsByTerms() {
+    const body = {
+      aggs: {
+        hobbies: {
+          terms: { field: 'user.hobbies.raw' },
+        },
+        lasts: {
+          terms: { field: 'foo.last.keyword' },
+        },
+      },
+    };
+
+    return await this.esService.search({
+      index: indexName,
+      body,
+    });
+  }
+
+  async setFielddata() {
     this.esService.indices.putMapping({
       index: indexName,
       body: {
         properties: {
-          'user.hobbies': {
+          'user.name': {
             type: 'text',
-            fielddata: true,
+            fielddata: false,
           },
         },
       },

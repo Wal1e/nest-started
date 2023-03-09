@@ -13,19 +13,13 @@ export class KafkaConsumerModule implements OnApplicationBootstrap {
 
   async handleListenerKafkaMessage() {
     console.log('handleListenerKafkaMessage');
-    const kafkaConsumer = getKafkaConsumer();
-    // console.log('kafkaConsumer===', kafkaConsumer);
-    // kafkaConsumer.on('message', async (message) => {
-    //   console.log('message==', message);
-    // });
+    const kafkaConsumer = await getKafkaConsumer();
     kafkaConsumer.on('error', async (error) => {
       console.log('error==', error);
     });
-    // 业务逻辑
-    this.esService;
   }
   async onApplicationBootstrap() {
-    this.handleListenerKafkaMessage();
+    // this.handleListenerKafkaMessage();
   }
   onModuleInit() {
     console.log('OnModuleInit');

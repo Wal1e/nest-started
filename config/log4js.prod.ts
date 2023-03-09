@@ -12,23 +12,7 @@ export const log4jsConfigure = {
       type: 'dateFile', //指定日志文件按时间打印
       numBackups: 30,
       filename: 'logs/reqlog/req', //指定输出文件路径
-      pattern: '.yyyyMMdd',
-      alwaysIncludePattern: true,
-    },
-    err: {
-      //错误日志
-      type: 'dateFile',
-      numBackups: 30,
-      filename: 'logs/errlog/err',
-      pattern: '.yyyyMMdd',
-      alwaysIncludePattern: true,
-    },
-    oth: {
-      //其他日志
-      type: 'dateFile',
-      numBackups: 30,
-      filename: 'logs/othlog/oth',
-      pattern: '.yyyyMMdd',
+      pattern: '.yyyy-MM-dd',
       alwaysIncludePattern: true,
     },
     console: {
@@ -38,7 +22,8 @@ export const log4jsConfigure = {
       type: 'file', // 会写入文件，并按照日期分类
       filename: `${baseLogPath}/access/access.log`, // 日志文件名，会命名为：access.20200320.log
       alwaysIncludePattern: true,
-      pattern: 'yyyyMMdd',
+      pattern: 'yyyy-MM-dd',
+      daysToKeep: 3,
       numBackups: 3,
       category: 'http',
       keepFileExt: true, // 是否保留文件后缀
@@ -53,7 +38,7 @@ export const log4jsConfigure = {
       //     '{"date":"%d","level":"%p","category":"%c","host":"%h","pid":"%z","data":\'%m\'}',
       // },
       // 日志文件按日期（天）切割
-      pattern: 'yyyyMMdd',
+      pattern: 'yyyy-MM-dd',
       // maxLogSize: 10485760,
       numBackups: 3,
       keepFileExt: true,
@@ -61,16 +46,12 @@ export const log4jsConfigure = {
     errorFile: {
       type: 'dateFile',
       filename: `${baseLogPath}/errors/error.log`,
-      alwaysIncludePattern: true,
-      // layout: {
-      //   type: 'pattern',
-      //   pattern:
-      //     '{"date":"%d","level":"%p","category":"%c","host":"%h","pid":"%z","data":\'%m\'}',
-      // },
+      alwaysIncludePattern: false,
       // 日志文件按日期（天）切割
-      pattern: 'yyyyMMdd',
+      pattern: 'yyyy-MM-dd',
       // maxLogSize: 10485760,
-      numBackups: 30,
+      daysToKeep: 1,
+      numBackups: 10,
       keepFileExt: true,
     },
     errors: {
@@ -81,10 +62,11 @@ export const log4jsConfigure = {
   },
   categories: {
     default: {
-      appenders: ['console', 'app', 'errors'],
+      appenders: ['console', 'access', 'app', 'errors'],
       level: 'trace',
     },
-    info: { appenders: ['console', 'app', 'errors'], level: 'info' },
-    http: { appenders: ['access'], level: 'trace' },
+    mysql: { appenders: ['access', 'errors'], level: 'info' },
+    http: { appenders: ['access'], level: 'DEBUG' },
+    log: { appenders: ['console'], level: 'info' },
   },
 };

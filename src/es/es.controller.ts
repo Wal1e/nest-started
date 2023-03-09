@@ -9,6 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { EsService } from './es.service';
+import { indexName } from 'config/env';
 
 @Controller('es')
 export class EsController {
@@ -26,9 +27,9 @@ export class EsController {
     return res;
   }
   // 新建索引
-  @Put('create/index/:indexName')
-  async createIndex(@Param('indexName') indexName) {
-    const res = await this.esService.createIndex(indexName, {
+  @Put('create/index')
+  async createIndex() {
+    const res = await this.esService.createIndex({
       mappings: {
         properties: {
           event: { type: 'text' },
@@ -45,13 +46,34 @@ export class EsController {
           user: {
             properties: {
               name: { type: 'text' },
-              hobbies: { type: 'text' },
+              hobbies: {
+                type: 'text',
+                fields: {
+                  // https://www.elastic.co/guide/en/elasticsearch/reference/7.17/multi-fields.html
+                  // 当需要用 terms 聚合的时候，需要 { field: 'user.hobbies.raw'}
+                  raw: {
+                    type: 'keyword',
+                  },
+                },
+              },
             },
           },
-          locationInfo: {
+          foo: {
             properties: {
-              timestamp: { type: 'integer' }, // 定位数据的时间戳
-              location: { type: 'text' }, // 经纬度换算后的具体地理位置
+              first: { type: 'text' },
+              last: {
+                type: 'text',
+                fields: {
+                  // https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html
+                  // 当需要用 terms 聚合的时候，需要 { field: 'foo.last.keyword'}
+                  // Use the last field for searches.
+                  // Use the last.keyword field for aggregations, sorting, or in scripts.
+                  keyword: {
+                    type: 'keyword',
+                    ignore_above: 256,
+                  },
+                },
+              },
             },
           },
         },
@@ -60,20 +82,24 @@ export class EsController {
     return res;
   }
   // 删除索引
-  @Delete('delete/index/:indexName')
-  async deleteIndex(@Param('indexName') indexName) {
-    const res = this.esService.deleteIndex(indexName);
+  @Delete('delete/index')
+  async deleteIndex() {
+    const res = this.esService.deleteIndex();
     return res;
   }
   /**
    * 插入文档
    */
-  @Put('index/doc/:indexName')
-  async indexDoc(@Param('indexName') indexName, @Body() post) {
+  @Put('index/doc')
+  async indexDoc(@Body() post) {
     console.log('indexDoc-post==', post);
     post.user = {
-      name: 'iOS 16.0',
-      hobbies: 'football',
+      name: 'iOS16.0',
+      hobbies: 'iOS16.6 football',
+    };
+    post.foo = {
+      first: 'tomluck',
+      last: 'Googluck',
     };
     try {
       const res = await this.esService.index({
@@ -92,9 +118,9 @@ export class EsController {
    */
   @Get('retrieve/doc')
   async retrieveDoc(@Query() query) {
-    const { index = '', id = '' } = query;
+    const { id = '' } = query;
     const res = await this.esService.get({
-      index,
+      index: indexName,
       id,
     });
     return res;
@@ -106,9 +132,9 @@ export class EsController {
   @Get('search')
   async getByAppid(@Query() query) {
     console.log('getByAppid-param=', query);
-    const { index = '', id = '' } = query;
+    const { id = '' } = query;
     const res = await this.esService.search({
-      index,
+      index: indexName,
       type: '_doc',
       body: {
         query: {
@@ -126,8 +152,8 @@ export class EsController {
    * 查询所有文档
    * @returns
    */
-  @Get('searchAll/:indexName')
-  async getAll(@Param('indexName') indexName) {
+  @Get('searchAll')
+  async getAll() {
     console.log('getAll');
     const res = await this.esService.searchALL({
       index: indexName,
@@ -217,9 +243,9 @@ export class EsController {
   /**
    * 获取索引的映射类型
    */
-  @Get('get/mapping/:indexName')
-  async getMapping(@Param('indexName') indexName) {
-    const res = this.esService.getMapping(indexName);
+  @Get('get/mapping')
+  async getMapping() {
+    const res = this.esService.getMapping();
     return res;
   }
   /**
@@ -228,24 +254,36 @@ export class EsController {
    */
   @Post('bulk')
   async bulkOperation() {
-    const res = this.esService.getByQuery('');
+    const res = this.esService.getByQuery();
     return res;
   }
 
-  /**
-   * 埋点sdk sendlog会一次上报1-10条数据，批量添加数据
-   */
   @Post('pans/api/batchBulk')
   async batchBulkData(@Body() post) {
     console.log('query');
   }
 
-  /**
-   * 埋点sdk sendlog会一次上报1-10条数据，批量添加数据
-   */
-  @Get('matchText/:indexName')
-  async matchText(@Param('indexName') indexName) {
-    const res = this.esService.getByQuery(indexName);
+  @Get('matchText')
+  async matchText() {
+    const res = this.esService.matchSearch();
+    return res;
+  }
+
+  @Put('putMapping')
+  async putMapping() {
+    const res = this.esService.setFielddata();
+    return res;
+  }
+
+  @Get('aggsByTerms')
+  async aggsByTerms() {
+    // try {
+    //   const res = await this.esService.aggsByTerms();
+    //   return res;
+    // } catch (error) {
+    //   console.log('aggsByTerms error===', error);
+    // }
+    const res = await this.esService.aggsByTerms();
     return res;
   }
 }

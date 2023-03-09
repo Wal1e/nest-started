@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DemoModule } from './demo/demo.module';
@@ -54,5 +54,10 @@ import { KafkaConsumerModule } from './kafka.consumer/kafka.consumer.module';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware, ParamMiddleware).forRoutes('demo');
+    consumer.apply(LoggerMiddleware).forRoutes('es');
+    // .forRoutes(
+    //   { path: 'demo', method: RequestMethod.ALL },
+    //   { path: 'es', method: RequestMethod.ALL },
+    // );
   }
 }
