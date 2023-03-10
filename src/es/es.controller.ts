@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { EsService } from './es.service';
 import { indexName } from 'config/env';
+import * as dayjs from 'dayjs';
 
 @Controller('es')
 export class EsController {
@@ -252,9 +253,9 @@ export class EsController {
    * @description bulk api
    * @usage 在单个API调用中执行多个索引或删除操作。这减少了开销，并可以大大提高索引速度。
    */
-  @Post('bulk')
-  async bulkOperation() {
-    const res = this.esService.getByQuery();
+  @Post('query')
+  async getByQuery() {
+    const res = await this.esService.getByQuery();
     return res;
   }
 
@@ -284,6 +285,22 @@ export class EsController {
     //   console.log('aggsByTerms error===', error);
     // }
     const res = await this.esService.aggsByTerms();
+    return res;
+  }
+
+  @Post('deleteByQuery')
+  async deleteByQuery() {
+    const before = dayjs().subtract(1, 'days'); // 2022 12 16 21:13:36
+    const beforeStart = before.startOf('date').valueOf(); // 2022 12 16 00:00:00
+    const beforeEnd = before.endOf('date').valueOf(); // 2022 12 16 23:59:59
+    const todayStart = dayjs().startOf('date').valueOf();
+    const todayNowByHour = dayjs().startOf('hour').valueOf();
+    const today_gte = todayStart;
+    const today_lt = todayNowByHour + 60 * 60 * 1000;
+    const res = await this.esService.deleteByQuery(
+      1671206400000,
+      1671292800000,
+    );
     return res;
   }
 }

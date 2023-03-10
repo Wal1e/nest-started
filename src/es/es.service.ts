@@ -226,6 +226,22 @@ export class EsService {
       },
     });
   }
+
+  async deleteByQuery(gte, lte) {
+    return this.esService.deleteByQuery({
+      index: indexName,
+      body: {
+        query: {
+          range: {
+            reportTime: {
+              gte,
+              lte,
+            },
+          },
+        },
+      },
+    });
+  }
 }
 
 // bool查询
