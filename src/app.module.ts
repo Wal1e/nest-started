@@ -14,6 +14,8 @@ import { ParamMiddleware } from './core/middleware/param.middleware';
 import { LoggerModule } from './logger/logger.module';
 import { KafkaConsumerService } from './kafka.consumer/kafka.consumer.service';
 import { KafkaConsumerModule } from './kafka.consumer/kafka.consumer.module';
+import { SchedulerModule } from './scheduler/scheduler.module';
+import { ScheduleModule } from '@nestjs/schedule';
 /**
  * 应用程序的根模块，根模块提供了用来启动应用的引导机制
  * @author: wangshnagzhe
@@ -25,6 +27,7 @@ import { KafkaConsumerModule } from './kafka.consumer/kafka.consumer.module';
       isGlobal: true,
       envFilePath: [envConfig.path],
     }),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -47,6 +50,7 @@ import { KafkaConsumerModule } from './kafka.consumer/kafka.consumer.module';
     EsModule,
     LoggerModule,
     KafkaConsumerModule,
+    SchedulerModule,
   ],
   controllers: [AppController],
   providers: [AppService, KafkaConsumerService],

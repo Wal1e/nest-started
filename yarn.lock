@@ -725,7 +725,7 @@
     "lodash" "4.17.21"
     "uuid" "8.3.2"
 
-"@nestjs/core@^8.0.0 || ^9.0.0", "@nestjs/core@^9.0.0":
+"@nestjs/core@^7.0.0 || ^8.0.0 || ^9.0.0", "@nestjs/core@^8.0.0 || ^9.0.0", "@nestjs/core@^9.0.0":
   "integrity" "sha512-a9GkXuu8uXgNgCVW+17iI8kLCltO+HwHpU2IhR+32JKnN2WEQ1YEWU4t3GJ2MNq44YkjIw9zrKvFkjJBlYrNbQ=="
   "resolved" "https://registry.npmjs.org/@nestjs/core/-/core-9.2.1.tgz"
   "version" "9.2.1"
@@ -763,6 +763,14 @@
     "express" "4.18.2"
     "multer" "1.4.4-lts.1"
     "tslib" "2.4.1"
+
+"@nestjs/schedule@^2.2.0":
+  "integrity" "sha512-wrDnUONTxBkD6lTWh9ecYk/kvJTbA3PylotjBoRsECmcS1SNvgInFXuL38UnHiFnXM3CHSFnzRLB259Bc1mOdQ=="
+  "resolved" "https://npm.weizhipin.com/@nestjs%2fschedule/-/schedule-2.2.0.tgz"
+  "version" "2.2.0"
+  dependencies:
+    "cron" "2.2.0"
+    "uuid" "9.0.0"
 
 "@nestjs/schematics@^9.0.0":
   "integrity" "sha512-kZrU/lrpVd2cnK8I3ibDb3Wi1ppl3wX3U3lVWoL+DzRRoezWKkh8upEL4q0koKmuXnsmLiu3UPxFeMOrJV7TSA=="
@@ -1004,6 +1012,14 @@
   "resolved" "https://registry.npmjs.org/@types/cookiejar/-/cookiejar-2.1.2.tgz"
   "version" "2.1.2"
 
+"@types/cron@^2.0.0":
+  "integrity" "sha512-xZM08fqvwIXgghtPVkSPKNgC+JoMQ2OHazEvyTKnNf7aWu1aB6/4lBbQFrb03Td2cUGG7ITzMv3mFYnMu6xRaQ=="
+  "resolved" "https://npm.weizhipin.com/@types%2fcron/-/cron-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "@types/luxon" "*"
+    "@types/node" "*"
+
 "@types/eslint-scope@^3.7.3":
   "integrity" "sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA=="
   "resolved" "https://registry.npmjs.org/@types/eslint-scope/-/eslint-scope-3.7.4.tgz"
@@ -1087,6 +1103,11 @@
   "integrity" "sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
   "version" "7.0.11"
+
+"@types/luxon@*":
+  "integrity" "sha512-lGmaGFoaXHuOLXFvuju2bfvZRqxAqkHPx9Y9IQdQABrinJJshJwfNCKV+u7rR3kJbiqfTF/NhOkcxxAFrObyaA=="
+  "resolved" "https://npm.weizhipin.com/@types%2fluxon/-/luxon-3.2.0.tgz"
+  "version" "3.2.0"
 
 "@types/mime@*":
   "integrity" "sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA=="
@@ -2309,6 +2330,13 @@
   "integrity" "sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ=="
   "resolved" "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   "version" "1.1.1"
+
+"cron@2.2.0":
+  "integrity" "sha512-GPiI3OgMv83XRtEUc2gUdaLvJhO3XbLN288layOBkDTupg0RK5IECNGpkykIMHg+muVR2bxt29b0xvCAcBrjYQ=="
+  "resolved" "https://npm.weizhipin.com/cron/-/cron-2.2.0.tgz"
+  "version" "2.2.0"
+  dependencies:
+    "luxon" "^3.2.1"
 
 "croner@~4.1.92":
   "integrity" "sha512-/f6gpQuxDaqXu+1kwQYSckUglPaOrHdbIlBAu0YuW8/Cdb45XwXYNUBXg3r/9Mo6n540Kn/smKcZWko5x99KrQ=="
@@ -4343,6 +4371,11 @@
   "version" "6.0.0"
   dependencies:
     "yallist" "^4.0.0"
+
+"luxon@^3.2.1":
+  "integrity" "sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg=="
+  "resolved" "https://npm.weizhipin.com/luxon/-/luxon-3.3.0.tgz"
+  "version" "3.3.0"
 
 "macos-release@^2.5.0":
   "integrity" "sha512-EIgv+QZ9r+814gjJj0Bt5vSLJLzswGmSUbUpbi9AIr/fsN2IWFBl2NucV9PAiek+U1STK468tEkxmVYUtuAN3g=="

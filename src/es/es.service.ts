@@ -242,6 +242,10 @@ export class EsService {
       },
     });
   }
+
+  async getEsImfSetting() {
+    this.esService.cluster.getSettings();
+  }
 }
 
 // bool查询

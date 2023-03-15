@@ -303,4 +303,9 @@ export class EsController {
     );
     return res;
   }
+
+  @Get('getEsImfSetting')
+  async getEsImfSetting() {
+    return await this.esService.getEsImfSetting();
+  }
 }
