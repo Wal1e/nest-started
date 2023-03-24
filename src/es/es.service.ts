@@ -243,7 +243,7 @@ export class EsService {
     });
   }
 
-  async getEsImfSetting() {
+  async getEsILMSetting() {
     this.esService.cluster.getSettings();
   }
 }
