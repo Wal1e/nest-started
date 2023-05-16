@@ -19,7 +19,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const msg = exception.message
       ? exception.message
       : `${status >= 500 ? 'Server Error' : 'Client Eror'}`;
-    console.log('exception.toString===', exception.toString());
+    // console.log('exception.toString===', exception.toString());
     const logFormat = ` <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       Request original url: ${request.originalUrl}
       Method: ${request.method}
@@ -27,7 +27,10 @@ export class HttpExceptionFilter implements ExceptionFilter {
       Status code: ${status}
       exception: ${exception.toString()} \n  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       `;
-    Logger.error(logFormat);
+    if (status === 404) {
+    } else {
+      Logger.error(logFormat);
+    }
 
     const errorRes = {
       data: {},
